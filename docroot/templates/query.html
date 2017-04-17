@@ -1,0 +1,29 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+<a class="navbar-brand" href="#">::squawk::media</a>
+</nav>
+
+<div ng-controller="ContentDirectoryController" class="container">
+
+    <div class="btn-group">
+          <label class="btn btn-primary" ng-model="filterModel.album" uib-btn-checkbox>album</label>
+          <label class="btn btn-primary" ng-model="filterModel.serie" uib-btn-checkbox>serie</label>
+          <label class="btn btn-primary" ng-model="filterModel.movie" uib-btn-checkbox>movie</label>
+          <label class="btn btn-primary" ng-model="filterModel.ebook" uib-btn-checkbox>ebook</label>
+          <label class="btn btn-primary" ng-model="filterModel.image" uib-btn-checkbox>image</label>
+    </div>
+
+    <pre>Model: {{filterModel}}</pre>
+    <pre>Results: {{filterResults}}</pre>
+
+    <!-- div class="row" -->
+
+    <div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
+        <div ng-repeat="item in reddit.items" class="col-md-2 query-item">
+              <a ng-href="#!{{item.uri}}.html"><img class="img-responsive" ng-src="{{item.albumArtUri}}" /></a><br/>
+              <a ng-href="#!{{item.uri}}.html" class="done">{{item.title}}</a>
+              <span ng-repeat="artist in item.artists">{{artist.title}}</span>
+        </div>
+        <div style='clear: both;'></div>
+        <div ng-show='reddit.busy'>Loading data...</div>
+    </div>
+</div>

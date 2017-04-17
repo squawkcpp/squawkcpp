@@ -1,0 +1,74 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <a class="navbar-brand" href="#">::squawk::media</a>
+</nav>
+
+<div ng-controller="AlbumController as cdsList" data-ng-init="refresh()">
+
+    <div id="album-links">
+        <a ng-repeat="image in album.albumArt" ng-if="image.title == 'front'" ng-href="{{image.uri}}" title="{{image.title}}"><img class="cover" ng-src="{{image.TN}}" /></a>
+        <a ng-repeat="image in album.albumArt" ng-if="image.title != 'front'" ng-href="{{image.uri}}" title="{{image.title}}"><img class="cover" ng-src="{{image.TN}}" /></a>
+    </div>
+
+    <div id="album-description">
+        <p>Artists: <span class="bold" ng-repeat="artist in album.artists">{{artist.title}} </span></p>
+        <p>Album: <span class="bold">{{album.title}}</span></p>
+        <p>Year: <span class="bold">{{album.year}}</span></p>
+        <p>Genre: <span class="bold">{{album.genre}}</span></p>
+
+        <table border="1">
+          <tr>
+          <td>&nbsp;</td>
+          <td>#</td>
+          <td>Disc</td>
+          <td>Title</td>
+          <td>Samplerate</td>
+          <td>Bitrate</td>
+          <td>Frequency</td>
+          <td>BPS</td>
+          <td>Channels</td>
+          <td>Length</td>
+          </tr>
+          <tr ng-repeat="track in album.tracks">
+            <td>
+              <span ng-switch on="track.profile">
+              <img ng-switch-when="FLAC" ng-src="/icons/flac16.png"/>
+              <img ng-switch-when="FLAC_HD" ng-src="/icons/flac_hd16.png"/>
+              <img ng-switch-when="MP3" ng-src="/icons/mp3.png"/>
+              <img ng-switch-default ng-src="/icons/unknown.png"/>
+              </span>
+            </td>
+            <td>{{track.track}}</td>
+            <td>{{track.disc}}</td>
+            <td><a ng-href="{{track.uri}}">{{track.title}}</a></td>
+            <td>{{track.samplerate}}</td>
+            <td>{{track.bitrate}}</td>
+            <td>{{track.sample_frequency}}</td>
+            <td>{{track.bits_per_sample}}</td>
+            <td>{{track.nr_audio_channels}}</td>
+            <td>{{track.duration}}</td>
+          </tr>
+        </table>
+    </div>
+</div>
+
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev"></a>
+    <a class="next"></a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<script type="text/javascript">
+document.getElementById('album-links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+

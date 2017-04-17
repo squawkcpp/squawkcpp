@@ -1,0 +1,26 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <a class="navbar-brand" href="#">::squawk::media</a>
+</nav>
+
+<div ng-controller="BookController" data-ng-init="refresh()">
+    <div id="book-images">
+        <a ng-repeat="image in book.albumArt" ng-if="image.title == 'front'" ng-href="{{image.uri}}"><img class="cover" ng-src="{{image.uri}}" /></a>
+    </div>
+
+    <div id="book-description">
+        <h2>{{book.title}}</h2>
+        <p>ISBN: {{book.isbn}}</p>
+        <p>Author: <span class="bold">{{book.author}}</span></p>
+        <p>Publisher: <span class="bold">{{book.publisher}}</span></p>
+        <p>Release: <span class="bold">{{book.year}}</span></p>
+
+        <a ng-href="{{book.uri}}">
+            <span ng-switch on="book.profile">
+                <img ng-switch-when="PDF" ng-src="/icons/pdf.png"/>
+                <img ng-switch-when="CHM" ng-src="/icons/fchm16.png"/>
+                LINK
+            </span>
+        </a>
+        <p ng-bind-html="book.comment"/>
+    </div>
+</div>

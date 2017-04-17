@@ -1,0 +1,62 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <a class="navbar-brand" href="#">::squawk::media</a>
+</nav>
+
+<div ng-controller="SeriesController" data-ng-init="refresh()">
+<!-- a ng-href=""><img class="cover" ng-src="{{album.albumArtUri}}" /></a -->
+
+<div id="album-images">
+    <a ng-repeat="image in series.albumArt" ng-if="image.title == 'poster'" ng-href="{{image.uri}}"><img class="cover" ng-src="{{image.TN}}" /></a>
+    <a ng-repeat="image in series.albumArt" ng-if="image.title != 'poster'" ng-href="{{image.uri}}"><img class="cover" ng-src="{{image.TN}}" /></a>
+</div>
+
+<div id="album-description">
+<p>Title: <span class="bold">{{series.title}}</span></p>
+<p>Year: <span class="bold">{{series.year}}</span></p>
+<p>Comment: <span class="bold">{{series.comment}}</span></p>
+
+<table border="1">
+  <tr>
+  <td>&nbsp;</td>
+  <td>#</td>
+  <td>Disc</td>
+  <td>Title</td>
+  <td>Samplerate</td>
+  <td>Bitrate</td>
+  <td>Frequency</td>
+  <td>BPS</td>
+  <td>Channels</td>
+  <td>Length</td>
+  </tr>
+  <tr ng-repeat="track in album.tracks">
+    <td>
+      <span ng-switch on="track.profile">
+      <img ng-switch-when="FLAC" ng-src="/icons/flac16.png"/>
+      <img ng-switch-when="FLAC_HD" ng-src="/icons/flac_hd16.png"/>
+      <img ng-switch-when="MP3" ng-src="/icons/mp3.png"/>
+      <img ng-switch-default ng-src="/icons/unknown.png"/>
+      </span>
+    </td>
+    <td>{{track.track}}</td>
+    <td>{{track.disc}}</td>
+    <td><a ng-href="{{track.uri}}">{{track.title}}</a></td>
+    <td>{{track.samplerate}}</td>
+    <td>{{track.bitrate}}</td>
+    <td>{{track.sample_frequency}}</td>
+    <td>{{track.bits_per_sample}}</td>
+    <td>{{track.nr_audio_channels}}</td>
+    <td>{{track.duration}}</td>
+  </tr>
+</table>
+</div>
+</div>
+
+<!-- div class="album-images">
+    <ng-gallery images="album.images"></ng-gallery>
+</div -->
+<!-- div id="album-description">
+  <p>Artists: <span class="bold" ng-repeat="artist in album.artists">{{artist.name}} </span></p>
+  <p>Album: <span class="bold">{{album.name}}</span></p>
+  <p>Year: <span class="bold">{{album.year}}</span></p>
+  <p>Genre: <span class="bold">{{album.genre}}</span></p>
+</div -->

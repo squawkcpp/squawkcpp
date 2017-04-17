@@ -1,0 +1,3452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>Hobba :: Audio :: Tag Frame Reference</title>
+		<link rel="stylesheet" type="text/css" href="/navigation.css" />
+		<link rel="meta" type="application/rdf+xml" href="/meta.rdf"/>
+		<link rel="stylesheet" type="text/css" href="tag_reference.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="author" content="Age Bosma" />
+		<meta name="copyright" content="&copy; 2004-2007 Age Bosma" />
+		<meta name="date" content="2007-04-10T17:00:00" />
+		<meta name="description" content="Reference of the different (proposed) tag frames to be used in the Matroska, ID3v2.x, Vorbis, APEv2, RIFF and Dublin Core tags" />
+		<meta name="keywords" content="Reference, Tag Frames, Tags, Matroska, ID3, ID3v1, ID3v2, Ogg, Vorbis, APE, APEv1, APEv2, Resource Interchange File Format, RIFF, Dublin Core" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="menubar">
+				<div class="crumbsmenu">
+					<p>
+						<a href="/" accesskey="1">Hobba.nl</a> &#62; <span class="activecrumb">Audio Information</span>
+					</p>
+				</div>
+				<div class="menu">
+					<p>
+						<a href="./">Introduction</a> | Tag Frame Reference
+					</p>
+				</div>
+			</div>
+			<div id="content">
+				<h1>Audio Information</h1>
+				<h2>Tag Frame Reference</h2>
+				<p>
+					This document contains a reference and comparison chart of the different (proposed) tag frames to be used in the Matroska,
+					ID3v2.x, Vorbis, APEv2 and Resource Interchange File Format (RIFF) tags.
+					The Dublin Core elements are included as well.<br /><br />
+					Note that this list is still unfinished and being worked on.
+					Please <a href="mailto:age@hobba.nl">let me know</a> if this document contains any errors so far.<br />
+					Three discussions have been started about this matter:
+				</p>
+				<div>
+					<ul>
+						<li><a href="http://www.hydrogenaudio.org/show.php/showtopic/19615" class="external" title="External resource">Hydrogenaudio Forums - Different tag type fields</a> about the missing tag types and tag type frames which should be included.</li>
+						<li><a href="http://www.hydrogenaudio.org/show.php/showtopic/20459" class="external" title="External resource">foobar2000 Forums - Common Foobar tag fields</a> about common used tag frames which should be included.</li>
+						<li><a href="mailto:matroska-devel@lists.matroska.org" class="external" title="External resource">Matroska-devel Mailing List - Tag Names</a> about the current and future development of the Matroska tag frames.</li>
+					</ul>
+				</div>
+				<p>
+					This document is a compilation of information which is available in the documents listed below.
+				</p>
+				<div>
+					<ul>
+						<li><a href="http://www.matroska.org/technical/specs/tagging/index.html" class="external" title="External specification resource">Matroska Tags</a></li>
+						<li><a href="http://www.xiph.org/ogg/vorbis/doc/v-comment.html" class="external" title="External specification resource">Ogg Vorbis I format specification: comment field and header specification</a></li>
+						<li><a href="mirroredpages/ogg-tagging.html">Ogg Vorbis Comment Field Recommendations</a><span class="super">[<a href="#note_1">1</a>]</span> (<a href="http://www.reactor-core.org/reference/ogg-tagging.html" class="external" title="External specification resource">original</a>)</li>
+						<li><a href="mirroredpages/apekey.html">APE Tag Item Keys</a> (<a href="http://www.personal.uni-jena.de/~pfk/mpp/sv8/apekey.html" class="external" title="External specification resource">original</a>)</li>
+						<li><a href="mirroredpages/id3v2.4.0-frames.txt">ID3 tag version 2.4.0 - Native Frames</a> (<a href="http://www.id3.org/id3v2.4.0-frames" class="external" title="External specification resource">original</a>)</li>
+						<li><a href="mirroredpages/ID3_comparison.html">Comparison of ID3 Fields/Frames</a> (<a href="http://www.unixgods.org/~tilo/ID3/docs/ID3_comparison.html" class="external" title="External specification resource">original</a>)</li>
+						<li><a href="http://wiki.hydrogenaudio.org/index.php?title=Foobar2000:ID3_Tag_Mapping" class="external" title="External specification resource">foobar2000 - ID3 Tag Mapping</a><span class="super">[<a href="#note_2">2</a>]</span></li>
+						<li><a href="http://www.dublincore.org/documents/dcmi-terms/" class="external" title="External specification resource">Dublin Core Metadata Initiative (DCMI) Metadata Terms</a></li>
+						<li>
+							<a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IBM/MS RIFF/MCI Specification 1.0</a><br />
+							(<a href="http://www.saettler.com/RIFFMCI/riffmci.html" class="external" title="External specification resource">original</a>, probably derived from the <a href="http://www.seanet.com/Users/matts/riffmci/riffmci.htm" class="external" title="External specification resource">Multimedia Programming Interface and Data Specifications 1.0</a>)</li>
+						<li><a href="http://abcavi.kibi.ru/infotags.htm" class="external" title="External specification resource">abcAVI Tag Editor - The comparison table of different tag's formats</a><span class="super">[<a href="#note_1">1</a>]</span></li>
+						<li><a href="http://www.sacredchao.net/quodlibet/browser/trunk/mutagen/mutagen/mp4.py#L178" class="external" title="External specification resource">Mutagen - Read and write MPEG-4 audio files with iTunes metadata</a></li>
+					</ul>
+				</div>
+				<table class="legend" cellspacing="0" border="1" summary="(None yet)">
+					<caption>Legend</caption>
+					<colgroup><col width="75" /></colgroup>
+					<colgroup><col width="330" /></colgroup>
+					<thead>
+						<tr>
+							<th scope="col">Marking</th>
+							<th scope="col">Explanation</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_1"><span class="super">1</span></td>
+							<td class="description">Unofficial though generally accepted/used tags</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_2"><span class="super">2</span></td>
+							<td class="description">Symbolic names as used in foobar2000 to be more descriptive</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_3"><span class="super">3</span></td>
+							<td class="description">Combined in one frame separated by a slash '/'</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_4"><span class="super">4</span></td>
+							<td class="description">Combined in one frame separated by a slash '/'</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_5"><span class="super">5</span></td>
+							<td class="description">The same frame can be used for different date indications. Add a space after the date and any text to describe the type of date</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_6"><span class="super">6</span></td>
+							<td class="description">There is no destinction between the encoder setting and the software or hardware</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_7"><span class="super">7</span></td>
+							<td class="description">Nested in ORIGINAL level</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_8"><span class="super">8</span></td>
+							<td class="description">Nested in ARTIST</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_9"><span class="super">9</span></td>
+							<td class="description">Nested in PUBLISHER</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_10"><span class="super">10</span></td>
+							<td class="description">Nested in ORIGINAL_MEDIA_TYPE</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_11"><span class="super">11</span></td>
+							<td class="description">Nested in COPYRIGHT</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-weight: bold;" id="note_12"><span class="super">12</span></td>
+							<td class="description">Nested in ARTIST, LEAD_PERFORMER or ACCOMPANIMENT</td>
+						</tr>
+						<tr>
+							<td style="background-color: #FFDAB6">&nbsp;</td>
+							<td class="description">Not &quot;officially&quot; confirmed being a correct mapping</td>
+						</tr>
+						<tr>
+							<td style="background-color: #FFFEDA">&nbsp;</td>
+							<td class="description">Nested Information (tags contained in other tags)</td>
+						</tr>
+<!--
+						<tr>
+							<td style="background-color: #D4EDFF">&nbsp;</td>
+							<td class="description">Combined in marked tag type</td>
+						</tr>
+						<tr>
+							<td style="background-color: #FED6FD">&nbsp;</td>
+							<td class="description">Not included in ID3V2.4 any more but it's still used in some cases.</td>
+						</tr>
+						<tr>
+							<td style="background-color: #FEBCBC">&nbsp;</td>
+							<td class="description">Possible error?</td>
+						</tr>
+						<tr>
+							<td style="background-color: #C0F4C0">&nbsp;</td>
+							<td class="description">&nbsp;</td>
+						</tr>
+-->
+					</tbody>
+				</table>
+				
+				<table class="reference" cellspacing="0" border="1" summary="(None yet)">
+					<caption>Tag Frame Reference</caption>
+					<colgroup><col width="170" /></colgroup>
+					<colgroup span="2">
+						<col width="130" />
+						<col width="50" />
+					</colgroup>
+					<colgroup><col width="80" /></colgroup>
+					<colgroup><col width="100" /></colgroup>
+					<colgroup><col width="48" /></colgroup>
+					<colgroup><col width="50" /></colgroup>
+					<colgroup span="2">
+						<col width="73" />
+						<col width="118" />
+					</colgroup>
+					<colgroup><col width="460" /></colgroup>
+					<thead>
+						<tr>
+							<th scope="col">Matroska</th>
+							<th scope="colgroup" colspan="2">ID3v2.4.0</th>
+							<th scope="col">Vorbis</th>
+							<th scope="col">APEv2</th>
+							<th scope="col">RIFF</th>
+							<th scope="col">iTunes AAC</th>
+							<th scope="colgroup" colspan="2">Dublin Core</th>
+							<th scope="col">Description</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<td colspan="10" class="tablefooter">&copy; 2004-2007 by <a href="mailto:age@hobba.nl">Age Bosma</a></td>
+						</tr>
+					</tfoot>
+					<tbody>
+						<tr id="organizational">
+							<th scope="colgroup" colspan="10" class="xheader">Organizational Information</th>
+						</tr>
+						<tr>
+							<td class="matroska">PART_NUMBER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Number of the current part of the current level.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PART_NUMBER</td>
+							<td class="id3name">TRACKNUMBER<span class="super">[<a href="#note_2">2</a>][<a href="#note_3">3</a>]</span></td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-298" class="external" title="External specification resource">TRCK</a></td>
+							<td class="vorbis">TRACKNUMBER</td>
+							<td class="ape">TRACK</td>
+							<td class="riff">IPRT<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">trkn</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Number of the current part of the current level.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PART_NUMBER</td>
+							<td class="id3name">DISCNUMBER<span class="super">[<a href="#note_2">2</a>][<a href="#note_4">4</a>]</span></td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-305" class="external" title="External specification resource">TPOS</a></td>
+							<td class="vorbis">DISCNUMBER<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">disk</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A numerical value indicating which number of media this item came from; e.g. if part of a multi-disc album.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PART_NUMBER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">PARTNUMBER<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Part number of a division within a work; e.g. a movement of a symphony.</td>
+						</tr>
+						<tr>
+							<td class="matroska">TOTAL_PARTS</td>
+							<td class="id3name">TOTALDISCS<span class="super">[<a href="#note_2">2</a>][<a href="#note_4">4</a>]</span></td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-305" class="external" title="External specification resource">TPOS</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">disk</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Total number of parts of the current level.</td>
+						</tr>
+						<tr>
+							<td class="matroska">TOTAL_PARTS</td>
+							<td class="id3name">TOTALTRACKS<span class="super">[<a href="#note_2">2</a>][<a href="#note_3">3</a>]</span></td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-298" class="external" title="External specification resource">TRCK</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IFRM<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">trkn</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Total number of parts of the current level.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="titles">
+							<th scope="colgroup" colspan="10" class="xheader">Titles</th>
+						</tr>
+						<tr>
+							<td class="matroska">TITLE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Title of item; e.g. album title or track title.</td>
+						</tr>
+						<tr>
+							<td class="matroska">TITLE</td>
+							<td class="id3name">TITLE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-279" class="external" title="External specification resource">TIT2</a></td>
+							<td class="vorbis">TITLE</td>
+							<td class="ape">TITLE</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">INAM</a></td>
+							<td class="aac">&copy;nam</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Title of item; e.g. album title or track title.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#classification">SORT_WITH</a></td>
+							<td class="id3name">TITLESORTORDER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-616" class="external" title="External specification resource">TSOT</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">sonm</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Defines a string which should be used instead of the title for sorting purposes.</td>
+						</tr>
+						<tr>
+							<td class="matroska">TITLE</td>
+							<td class="id3name">ALBUM</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-288" class="external" title="External specification resource">TALB</a></td>
+							<td class="vorbis">ALBUM</td>
+							<td class="ape">ALBUM</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&copy;alb</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The collection name to which this track belongs.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#classification">SORT_WITH</a></td>
+							<td class="id3name">ALBUMSORTORDER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-607" class="external" title="External specification resource">TSOA</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">soal</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Defines a string which should be used instead of the album name for sorting purposes.</td>
+						</tr>
+						<tr>
+							<td class="matroska">ALBUM<span class="super">[<a href="#note_7">7</a>]</span></td>
+							<td class="id3name">ORIGALBUM</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-293" class="external" title="External specification resource">TOAL</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Original album/movie/show title (In case of a remake/remix).</td>
+						</tr>
+						<tr>
+							<td class="matroska">TITLE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">PART<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Division within a work; e.g. a movement of a symphony. Some tracks contain several parts.</td>
+						</tr>
+						<tr>
+							<td class="matroska">SUBTITLE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#alternative" class="external" title="External specification resource">alternative</a></td>
+
+							<td class="description">Subtitle of the entity. May also be used to differentiate multiple versions of the same tracktitle in a single collection (e.g. remix info); e.g. "live", "acoustic", "radio edit", "12 inch remix", etc.</td>
+						</tr>
+						<tr>
+							<td class="matroska">SUBTITLE</td>
+							<td class="id3name">SUBTITLE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-283" class="external" title="External specification resource">TIT3</a></td>
+							<td class="vorbis">VERSION</td>
+							<td class="ape">SUBTITLE</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#alternative" class="external" title="External specification resource">alternative</a></td>
+
+							<td class="description">Subtitle of the entity. May also be used to differentiate multiple versions of the same tracktitle in a single collection (e.g. remix info); e.g. "live", "acoustic", "radio edit", "12 inch remix", etc.</td>
+						</tr>
+						<tr>
+							<td class="matroska">SUBTITLE</td>
+							<td class="id3name">SETSUBTITLE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-313" class="external" title="External specification resource">TSST</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#alternative" class="external" title="External specification resource">alternative</a></td>
+
+							<td class="description">Intended for the subtitle of the part of a set this track belongs to.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- defined by the <a href="#targettypes">Target types</a> -</i></td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">OPUS<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The number of the work; e.g. &quot;Opus 10, BVW 81, K6&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">DEBUT ALBUM</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Debut Album name.</td>
+						</tr>
+						<tr>
+							<td class="matroska">TITLE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">tvsh</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Name of the show.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#classification">SORT_WITH</a></td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">sosn</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Show name sort order.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="entities">
+							<th scope="colgroup" colspan="10" class="xheader">Entities</th>
+						</tr>
+						<tr>
+							<td class="matroska">ARTIST</td>
+							<td class="id3name">ARTIST</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-324" class="external" title="External specification resource">TPE1</a></td>
+							<td class="vorbis">ARTIST</td>
+							<td class="ape">ARTIST</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&copy;ART</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A person or band/collective generally considered responsible for the work.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#classification">SORT_WITH</a></td>
+							<td class="id3name">PERFORMERSORTORDER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-612" class="external" title="External specification resource">TSOP</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">soar</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Defines a string which should be used instead of the performer for sorting purposes.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#contact">URL</a><span class="super">[<a href="#note_8">8</a>]</span></td>
+							<td class="id3name">WWWARTIST</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-668" class="external" title="External specification resource">WOAR</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Official artist/performer webpage.</td>
+						</tr>
+						<tr>
+							<td class="matroska">ARTIST<span class="super">[<a href="#note_7">7</a>]</span></td>
+							<td class="id3name">ORIGARTIST</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-340" class="external" title="External specification resource">TOPE</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Original artist(s)/performer(s).</td>
+						</tr>
+						<tr>
+							<td class="matroska">LEAD_PERFORMER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">PERFORMER</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Lead Performer/Soloist(s). This can sometimes be the same as ARTIST.</td>
+						</tr>
+						<tr>
+							<td class="matroska">ACCOMPANIMENT</td>
+							<td class="id3name">BAND</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-328" class="external" title="External specification resource">TPE2</a></td>
+							<td class="vorbis">ENSEMBLE<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">aART</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Band/orchestra/accompaniment/musician.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#classification">SORT_WITH</a></td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">soaa</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Album Artist sort order.</td>
+						</tr>
+						<tr>
+							<td class="matroska">COMPOSER</td>
+							<td class="id3name">COMPOSER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-354" class="external" title="External specification resource">TCOM</a></td>
+							<td class="vorbis">COMPOSER<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">COMPOSER</td>
+							<td class="riff">IMUS<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&copy;wrt</td>
+
+							<td class="dcelement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#creator" class="external" title="External specification resource">creator</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Name of the original composer.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#classification">SORT_WITH</a></td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">soco</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Composer sort order.</td>
+						</tr>
+						<tr>
+							<td class="matroska">ARRANGER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">ARRANGER<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#creator" class="external" title="External specification resource">creator</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The person who arranged the piece; e.g. &quot;Ravel&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska">LYRICIST</td>
+							<td class="id3name">LYRICIST</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-345" class="external" title="External specification resource">TEXT</a></td>
+							<td class="vorbis">LYRICIST<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#creator" class="external" title="External specification resource">creator</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The person who wrote the lyrics for a musical item.</td>
+						</tr>
+						<tr>
+							<td class="matroska">LYRICIST<span class="super">[<a href="#note_7">7</a>]</span></td>
+							<td class="id3name">ORIGLYRICIST</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-349" class="external" title="External specification resource">TOLY</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Original lyricist(s)/text writer(s).</td>
+						</tr>
+						<tr>
+							<td class="matroska">CONDUCTOR</td>
+							<td class="id3name">CONDUCTOR</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-332" class="external" title="External specification resource">TPE3</a></td>
+							<td class="vorbis">CONDUCTOR<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">CONDUCTOR</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The artist(s) who performed the work. In classical music this would be the conductor, orchestra, soloists.</td>
+						</tr>
+						<tr>
+							<td class="matroska">ACTOR</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Real name of actor or actress playing a role in the movie.</td>
+						</tr>
+						<tr>
+							<td class="matroska">CHARACTER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Name of the character an actor or actress plays in this movie.</td>
+						</tr>
+						<tr>
+							<td class="matroska">WRITTEN_BY</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">AUTHOR<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IWRI<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#creator" class="external" title="External specification resource">creator</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The author of the story or script.</td>
+						</tr>
+						<tr>
+							<td class="matroska">SCREENPLAY_BY</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The author of the screenplay or scenario (used for movies and TV shows).</td>
+						</tr>
+						<tr>
+							<td class="matroska">DIRECTOR</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IART</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Name of the director.</td>
+						</tr>
+						<tr>
+							<td class="matroska">ASSISTANT_DIRECTOR</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Name of the assistant director.</td>
+						</tr>
+						<tr>
+							<td class="matroska">DIRECTOR_OF_PHOTOGRAPHY</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">ICNM<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The name of the director of photography, also known as cinematographer.</td>
+						</tr>
+						<tr>
+							<td class="matroska">ART_DIRECTOR</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The person who oversees the artists and craftspeople who build the sets.</td>
+						</tr>
+						<tr>
+							<td class="matroska">EDITED_BY</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IEDT<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="matroska">PRODUCER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IPRO<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Name of the producer of the movie.</td>
+						</tr>
+						<tr>
+							<td class="matroska">COPRODUCER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The name of a co-producer.</td>
+						</tr>
+						<tr>
+							<td class="matroska">EXECUTIVE_PRODUCER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The name of an executive producer.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PRODUCTION_DESIGNER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IPDS<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Artist responsible for designing the overall visual appearance of a movie.</td>
+						</tr>
+						<tr>
+							<td class="matroska">COSTUME_DESIGNER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">ICDS<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The name of the costume designer.</td>
+						</tr>
+						<tr>
+							<td class="matroska">CHOREGRAPHER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The name of the choregrapher.</td>
+						</tr>
+						<tr>
+							<td class="matroska">SOUND_ENGINEER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The name of the sound engineer or sound recordist.</td>
+						</tr>
+						<tr>
+							<td class="matroska">MASTERED_BY</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The engineer who mastered the content for a physical medium or for digital distribution.</td>
+						</tr>
+						<tr>
+							<td class="matroska">REMIXED_BY</td>
+							<td class="id3name">MIXARTIST</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-335" class="external" title="External specification resource">TPE4</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Interpreted, remixed, or otherwise modified by.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PRODUCTION_STUDIO</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">ISTD<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="matroska">LABEL</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">ORGANIZATION<br />LABEL<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The record label or imprint on the disc.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PUBLISHER</td>
+							<td class="id3name">PUBLISHER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-546" class="external" title="External specification resource">TPUB</a></td>
+							<td class="vorbis">PUBLISHER<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">PUBLISHER</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#publisher" class="external" title="External specification resource">publisher</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Name of the organization producing the track (i.e. the 'record label').</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#contact">URL</a><span class="super">[<a href="#note_9">9</a>]</span></td>
+							<td class="id3name">WWWPUBLISHER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-686" class="external" title="External specification resource">WPUB</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Publishers official webpage.</td>
+						</tr>
+						<tr>
+							<td class="matroska">DISTRIBUTED_BY</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IDST<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="matroska">ENCODED_BY</td>
+							<td class="id3name">ENCODEDBY</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-367" class="external" title="External specification resource">TENC</a></td>
+							<td class="vorbis">ENCODED-BY<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ITCH</a></td>
+							<td class="aac">&copy;too</td>
+
+							<td class="dcelement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#creator" class="external" title="External specification resource">creator</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Name of the person or organisation that encoded/ripped the audio file.</td>
+						</tr>
+						<tr>
+							<td class="matroska">THANKS_TO</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#contributor" class="external" title="External specification resource">contributor</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A very general tag for everyone else that wants to be listed.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">INVOLVEDPEOPLE2</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-363" class="external" title="External specification resource">TIPL</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Intended as a mapping between functions and the name of the person who fulfilled the function.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#classification">INSTRUMENTS</a><span class="super">[<a href="#note_12">12</a>]</span></td>
+							<td class="id3name">MUSICIANCREDITLIST</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-357" class="external" title="External specification resource">TMCL</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Intended as a mapping between instruments and the musician that played it.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ICMS</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Commissioned. Lists the name of the person or organization that commissioned the subject of the file; e.g. &quot;Pope Julian II&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IENG</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Engineer. Stores the name of the engineer who worked on the file.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ISRC</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Source. Identifies the name of the person or organization who supplied the original subject of the file. For example, "Trey Research."</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">ISTR<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Starring</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="contact">
+							<th scope="colgroup" colspan="10" class="xheader">Contact Information</th>
+						</tr>
+						<tr>
+							<td class="matroska" style="background-color: #FFFEDA">URL</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">URL corresponding to the tag it's included in.</td>
+						</tr>
+						<tr>
+							<td class="matroska" style="background-color: #FFFEDA">EMAIL</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Email corresponding to the tag it's included in.</td>
+						</tr>
+						<tr>
+							<td class="matroska" style="background-color: #FFFEDA">ADDRESS</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The physical address of the entity. The address should include a country code. It can be useful for a recording label.</td>
+						</tr>
+						<tr>
+							<td class="matroska" style="background-color: #FFFEDA">PHONE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The phone number corresponding to the tag it's included in. It can be useful for a recording label.</td>
+						</tr>
+						<tr>
+							<td class="matroska" style="background-color: #FFFEDA">FAX</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The fax number corresponding to the tag it's included in. It can be useful for a recording label.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- nested using the <a href="#contact">Contact Information</a> elements -</i></td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">CONTACT</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Contact information for the creators or distributors of the track. This could be a URL, an email address, the physical address of the producing label.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="classification">
+							<th scope="colgroup" colspan="10" class="xheader">Search/Classification</th>
+						</tr>
+						<tr>
+							<td class="matroska">GENRE</td>
+							<td class="id3name">GENRE<span class="super">[<a href="#note_2">2</a>]</span></td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-400" class="external" title="External specification resource">TCON</a></td>
+							<td class="vorbis">GENRE</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&copy;gen</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The main genre of the audio or video; e.g. &quot;classical&quot;, &quot;ambient-house&quot;, &quot;synthpop&quot;, &quot;sci-fi&quot;, &quot;drama&quot;, etc. (see <a href="http://www.id3.org/id3v2.4.0-frames#line-1641" class="external" title="External specification resource">Genre List from ID3v1</a>)</td>
+						</tr>
+						<tr>
+							<td class="matroska">MOOD</td>
+							<td class="id3name">MOOD</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-518" class="external" title="External specification resource">TMOO</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Intended to reflect the mood of the item with a few keywords, e.g. &quot;Romantic&quot;, &quot;Sad&quot;, &quot;Uplifting&quot;, etc.</td>
+						</tr>
+						<tr>
+							<td class="matroska">ORIGINAL_MEDIA_TYPE</td>
+							<td class="id3name">MEDIATYPE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-431" class="external" title="External specification resource">TMED</a></td>
+							<td class="vorbis">SOURCEMEDIA<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ISRF</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#source" class="external" title="External specification resource">source</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the original recording media form from which the material originated, such as &quot;CD&quot;, &quot;cassette&quot;, &quot;LP&quot;, &quot;radio broadcast&quot;, &quot;slide&quot;, &quot;paper&quot;, etc.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#contact">URL</a><span class="super">[<a href="#note_10">10</a>]</span></td>
+							<td class="id3name">WWWAUDIOSOURCE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-674" class="external" title="External specification resource">WOAS</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Official audio source webpage; e.g. a movie.</td>
+						</tr>
+						<tr>
+							<td class="matroska">CONTENT_TYPE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#type" class="external" title="External specification resource">type</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The type of the item. e.g. Documentary, Feature Film, Cartoon, Music Video, Music, Sound FX, etc.</td>
+						</tr>
+						<tr>
+							<td class="matroska">SUBJECT</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ISBJ</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#subject" class="external" title="External specification resource">subject</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Describes the topic of the file, such as &quot;Aerial view of Seattle.&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska">SYNOPSIS</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A description of the story line of the item.</td>
+						</tr>
+						<tr>
+							<td class="matroska">SUMMARY</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">ABSTRACT</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#description" class="external" title="External specification resource">description</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#abstract" class="external" title="External specification resource">abstract</a></td>
+
+							<td class="description">A plot outline or a summary of the story.</td>
+						</tr>
+						<tr>
+							<td class="matroska">DESCRIPTION</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">DESCRIPTION</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">desc</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#description" class="external" title="External specification resource">description</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A short description of the contents, such as &quot;Two birds flying&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska">KEYWORDS</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IKEY</a></td>
+							<td class="aac">keyw</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Keywords to the item separated by a comma, used for searching.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PERIOD</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#coverage" class="external" title="External specification resource">coverage</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#temporal" class="external" title="External specification resource">temporal</a></td>
+
+							<td class="description">Describes the period that the piece is from or about; e.g. &quot;Renaissance&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska" style="background-color: #FFFEDA">SORT_WITH</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A child element to indicate what alternative value the parent tag (person, band, album, etc.) can have to be sorted; e.g. &quot;The Beatles&quot; => &quot;Beatles, The&quot;, &quot;Bob Marley&quot; => &quot;Marley, Bob&quot;</td>
+						</tr>
+						<tr>
+							<td class="matroska" style="background-color: #FFFEDA">INSTRUMENTS</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The instruments that are being used/played, separated by a comma. It should be a child of the following tags: ARTIST, LEAD_PERFORMER or ACCOMPANIMENT.</td>
+						</tr>
+						<tr>
+							<td class="matroska">LAW_RATING</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IRTD<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#audience" class="external" title="External specification resource">audience</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Depending on the country it's the format of the rating of a movie (P, R, X in the USA, an age in other countries or a URI defining a logo).</td>
+						</tr>
+						<tr>
+							<td class="matroska">ICRA</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#audience" class="external" title="External specification resource">audience</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The <a href="http://www.icra.org/" class="external" title="External specification resource">ICRA</a> rating. (Previously RSACi)</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">LANGUAGE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-393" class="external" title="External specification resource">TLAN</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">LANGUAGE</td>
+							<td class="riff">ILNG<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#language" class="external" title="External specification resource">language</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Language(s) of the item in the bibliographic <a href="http://www.loc.gov/standards/iso639-2/englangn.html#two" class="external" title="External specification resource">ISO-639-2</a> form.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">CONTENTGROUP</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-273" class="external" title="External specification resource">TIT1</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&copy;grp</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#type" class="external" title="External specification resource">type</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Used if the sound belongs to a larger category of sounds/music. For example, classical music is often sorted in different musical sections; e.g. "Piano Concerto", "Weather - Hurricane".</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IGNR</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#description" class="external" title="External specification resource">description</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Genre. Describes the original work, such as, "landscape," "portrait," "still life," etc.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IMED</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#source" class="external" title="External specification resource">source</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Medium. Describes the original subject of the file, such as, "computer image," "drawing," "lithograph," and so forth. Not necessarily the same as ISRF.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IPRD</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#title" class="external" title="External specification resource">title</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Product. Specifies the name of the title the file was originally intended for, such as "Encyclopedia of Pacific Northwest Geography."</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">ICNT<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Country</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#audience" class="external" title="External specification resource">audience</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#mediator" class="external" title="External specification resource">mediator</a></td>
+
+							<td class="description">A class of entity that mediates access to the resource and for whom the resource is intended or useful.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#audience" class="external" title="External specification resource">audience</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#educationLevel" class="external" title="External specification resource">educationLevel</a></td>
+
+							<td class="description">Audience Education Level</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#description" class="external" title="External specification resource">description</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#tableOfContents" class="external" title="External specification resource">tableOfContents</a></td>
+
+							<td class="description">A list of subunits of the content of the resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">catg</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">(Podcast) category.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="temporal">
+							<th scope="colgroup" colspan="10" class="xheader">Temporal Information</th>
+						</tr>
+						<tr>
+							<td class="matroska">DATE_WRITTEN</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">DATE<span class="super">[<a href="#note_1">1</a>][<a href="#note_5">5</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ICRD</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#created" class="external" title="External specification resource">created</a></td>
+
+							<td class="description">The time that the composition of the music/script began. Information should be stored in the <a href="http://www.iso.org/iso/en/prods-services/popstds/datesandtime.html" class="external" title="External specification resource">ISO 8601</a> format: &quot;YYYY-MM-DDThh:mm:ss&quot;; e.g. &quot;2003-04-01T13:01:02&quot; or &quot;2003-04&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska">DATE_RECORDED</td>
+							<td class="id3name">RECORDINGTIME</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-586" class="external" title="External specification resource">TDRC</a></td>
+							<td class="vorbis">DATE</td>
+							<td class="ape">RECORD DATE</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&copy;day</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#created" class="external" title="External specification resource">created</a></td>
+
+							<td class="description">The time that the recording began. (See DATE_WRITTEN for format information)</td>
+						</tr>
+						<tr>
+							<td class="matroska">DATE_RELEASED</td>
+							<td class="id3name">RELEASETIME</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-591" class="external" title="External specification resource">TDRL</a></td>
+							<td class="vorbis">DATE<span class="super">[<a href="#note_1">1</a>][<a href="#note_5">5</a>]</span></td>
+							<td class="ape">YEAR</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#issued" class="external" title="External specification resource">issued</a></td>
+
+							<td class="description">The time that the item was originaly released. (See DATE_WRITTEN for format information)</td>
+						</tr>
+						<tr>
+							<td class="matroska">DATE_DIGITIZED</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">DATE<span class="super">[<a href="#note_1">1</a>][<a href="#note_5">5</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IDIT<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#created" class="external" title="External specification resource">created</a></td>
+
+							<td class="description">The time that the item was tranfered to a digitalmedium. (See DATE_WRITTEN for format information)</td>
+						</tr>
+						<tr>
+							<td class="matroska">DATE_ENCODED</td>
+							<td class="id3name">ENCODINGTIME</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-576" class="external" title="External specification resource">TDEN</a></td>
+							<td class="vorbis">DATE<span class="super">[<a href="#note_1">1</a>][<a href="#note_5">5</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#created" class="external" title="External specification resource">created</a></td>
+
+							<td class="description">The time that the encoding of this item was completed began. (See DATE_WRITTEN for format information)</td>
+						</tr>
+						<tr>
+							<td class="matroska">DATE_TAGGED</td>
+							<td class="id3name">TAGGINGTIME</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-596" class="external" title="External specification resource">TDTG</a></td>
+							<td class="vorbis">DATE<span class="super">[<a href="#note_1">1</a>][<a href="#note_5">5</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The time that the tags were done for this item. (See DATE_WRITTEN for format information)</td>
+						</tr>
+						<tr>
+							<td class="matroska">DATE_PURCHASED</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">DATE<span class="super">[<a href="#note_1">1</a>][<a href="#note_5">5</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">purd</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Information on when the file was purchased. (See DATE_WRITTEN for format information)</td>
+						</tr>
+						<tr>
+							<td class="matroska">DATE_RELEASED<span class="super">[<a href="#note_7">7</a>]</span></td>
+							<td class="id3name">ORIGRELEASETIME</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-581" class="external" title="External specification resource">TDOR</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Contains a timestamp describing when the original recording of the audio was released.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#valid" class="external" title="External specification resource">valid</a></td>
+
+							<td class="description">Date (often a range) of validity of a resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#available" class="external" title="External specification resource">available</a></td>
+
+							<td class="description">Date (often a range) that the resource will become or did become available.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#modified" class="external" title="External specification resource">modified</a></td>
+
+							<td class="description">Date on which the resource was changed.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#dateCopyrighted" class="external" title="External specification resource">dateCopyrighted</a></td>
+
+							<td class="description">Date of a statement of copyright.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#date" class="external" title="External specification resource">date</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#dateSubmitted" class="external" title="External specification resource">dateSubmitted</a></td>
+
+							<td class="description">Date of submission of the resource (e.g. thesis, articles, etc.).</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="spacial">
+							<th scope="colgroup" colspan="10" class="xheader">Spacial Information</th>
+						</tr>
+						<tr>
+							<td class="matroska">COMPOSITION_LOCATION</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#coverage" class="external" title="External specification resource">coverage</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#spatial" class="external" title="External specification resource">spatial</a></td>
+
+							<td class="description">Location that the item was originaly designed/written. Information should be stored in the following format: "country code, state/province, city" where the coutry code is the same 2 octets as in <a href="http://www.iana.org/cctld/cctld-whois.htm" class="external" title="External specification resource">Internet domains</a>, or possibly <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html" class="external" title="External specification resource">ISO-3166</a>; e.g. &quot;US, Texas, Austin&quot; or &quot;US, , Austin&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska">RECORDING_LOCATION</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">LOCATION</td>
+							<td class="ape">RECORD LOCATION</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#coverage" class="external" title="External specification resource">coverage</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#spatial" class="external" title="External specification resource">spatial</a></td>
+
+							<td class="description">Location where track was recorded. (See COMPOSITION_LOCATION for format)</td>
+						</tr>
+						<tr>
+							<td class="matroska">COMPOSER_NATIONALITY</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#coverage" class="external" title="External specification resource">coverage</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Nationality of the main composer of the item, mostly for classical music.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="personal">
+							<th scope="colgroup" colspan="10" class="xheader">Personal Information</th>
+						</tr>
+						<tr>
+							<td class="matroska">COMMENT</td>
+							<td class="id3name">COMMENT</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-954" class="external" title="External specification resource">COMM</a></td>
+							<td class="vorbis">COMMENT<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">COMMENT</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ICMT</a></td>
+							<td class="aac">&copy;cmt</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Any comment related to the content.</td>
+						</tr>
+						<tr>
+							<td class="matroska">RATING</td>
+							<td class="id3name">POPULARIMETER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1166" class="external" title="External specification resource">POPM</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A numeric value defining how much a person likes the song/movie. The number is between 0 and 5 with decimal values possible (e.g. 2.7), 5(.0) being the highest possible rating.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PLAY_COUNTER</td>
+							<td class="id3name">PLAYCOUNTER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1153" class="external" title="External specification resource">PCNT</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The number of time the item has been played.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="technical">
+							<th scope="colgroup" colspan="10" class="xheader">Technical Information</th>
+						</tr>
+						<tr>
+							<td class="matroska">ENCODER</td>
+							<td class="id3name">ENCODERSETTINGS<span class="super">[<a href="#note_6">6</a>]</span></td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-601" class="external" title="External specification resource">TSSE</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The software or hardware used to encode this item; e.g. &quot;LAME&quot; or &quot;XviD&quot;</td>
+						</tr>
+						<tr>
+							<td class="matroska">ENCODER_SETTINGS</td>
+							<td class="id3name">ENCODERSETTINGS<span class="super">[<a href="#note_6">6</a>]</span></td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-601" class="external" title="External specification resource">TSSE</a></td>
+							<td class="vorbis">ENCODING<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A list of the settings used for encoding this item. No specific format.</td>
+						</tr>
+						<tr>
+							<td class="matroska">BPS</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The average bits per second of the specified item.</td>
+						</tr>
+						<tr>
+							<td class="matroska">FPS</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The average frames per second of the specified item.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#Duration">Duration</a> -</i></td>
+							<td class="id3name">SONGLEN</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-381" class="external" title="External specification resource">TLEN</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#extent" class="external" title="External specification resource">extent</a></td>
+
+							<td class="description">Length of the audio file in milliseconds.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#TrackType">TrackType</a> + <a href="http://www.matroska.org/technical/specs/index.html#CodecID">CodecID</a> + <a href="http://www.matroska.org/technical/specs/index.html#CodecName">CodecName</a> -</i></td>
+							<td class="id3name">FILETYPE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-412" class="external" title="External specification resource">TFLT</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Indicates, by defined codes, which type of audio this tag defines; e.g. &quot;MPEG Audio&quot; (default), &quot;MPEG 1/2 layer III&quot;, &quot;Advanced Audio Compression&quot;, etc.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#MetaSeekInformation">Meta Seek Information</a> elements -</i></td>
+							<td class="id3name">SEEKFRAME</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1477" class="external" title="External specification resource">SEEK</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">This frame indicates where other tags in a file/stream can be found.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#SeekHead">SeekHead</a> and <a href="http://www.matroska.org/technical/specs/index.html#Cues">Cues</a> -</i></td>
+							<td class="id3name">MPEGLOOKUP</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-792" class="external" title="External specification resource">MLLT</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">MPEG location lookup table to increase performance and accuracy of jumps within an audio file.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#Cues">Cues</a> -</i></td>
+							<td class="id3name">AUDIOSEEKPOINT</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1488" class="external" title="External specification resource">ASPI</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Makes seeking in audio files with variable bit rates easier using an audio seek point index.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#TrackOffset">TrackOffset</a> -</i></td>
+							<td class="id3name">PLAYLISTDELAY</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-570" class="external" title="External specification resource">TDLY</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Defines the numbers of milliseconds of silence that should be inserted before this audio.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">EVENTTIMING</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-724" class="external" title="External specification resource">ETCO</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Allows synchronisation with key events in the audio.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">SYNCEDTEMPO</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-828" class="external" title="External specification resource">SYTC</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Synchronised tempo codes for a more accurate description of the tempo of a musical piece.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">POSITIONSYNC</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1290" class="external" title="External specification resource">POSS</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Delivers information to the listener of how far into the audio stream he picked up.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">BUFFERSIZE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1189" class="external" title="External specification resource">RBUF</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Buffer size recommended by the server using this frame (in case of streaming).</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IDPI</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Dots Per Inch. Stores dots per inch setting of the digitizer used to produce the file, such as "300."</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ILGT</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Lightness. Describes the changes in lightness settings on the digitizer required to produce the file. Note that the format of this information depends on hardware used.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IPLT</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Palette Setting. Specifies the number of colors requested when digitizing an image, such as "256."</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ISHP</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Sharpness. Identifies the changes in sharpness for the digitizer required to produce the file (the format depends on the hardware used).</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#PixelCropBottom">PixelCropBottom</a> + <a href="http://www.matroska.org/technical/specs/index.html#PixelCropTop">PixelCropTop</a> + <a href="http://www.matroska.org/technical/specs/index.html#PixelCropLeft">PixelCropLeft</a> + <a href="http://www.matroska.org/technical/specs/index.html#PixelCropRight">PixelCropRight</a> -</i></td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ICRP</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Cropped. Describes whether an image has been cropped and, if so, how it was cropped. For example, "lower right corner."</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IDIM</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Dimensions. Specifies the size of the original subject of the file. For example, "8.5 in h, 11 in w."</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ISMP</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">SMPTE time code defined by the <a href="http://www.smpte.org/" class="external" title="External specification resource">Society of Motion Picture and Television Engineers</a> in the SMPTE 12M specification.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#medium" class="external" title="External specification resource">medium</a></td>
+
+							<td class="description">The material or physical carrier of the resource.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="musical">
+							<th scope="colgroup" colspan="10" class="xheader">Musical Information</th>
+						</tr>
+						<tr>
+							<td class="matroska">BPM</td>
+							<td class="id3name">BPM</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-376" class="external" title="External specification resource">TBPM</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">tmpo</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Average number of beats per minute in the complete target (e.g. a chapter). Usually a decimal number.</td>
+						</tr>
+						<tr>
+							<td class="matroska">MEASURE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">In music, a measure is a unit of time in Western music like "4/4". It represents a regular grouping of beats, a meter, as indicated in musical notation by the time signature.. The majority of the contemporary rock and pop music you hear on the radio these days is written in the 4/4 time signature.</td>
+						</tr>
+						<tr>
+							<td class="matroska">TUNING</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#format" class="external" title="External specification resource">format</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">It is saved as a frequency in hertz to allow near-perfect tuning of instruments to the same tone as the musical piece (e.g. "441.34" in Hertz). The default value is 440.0 Hz.</td>
+						</tr>
+						<tr>
+							<td class="matroska">INITIAL_KEY</td>
+							<td class="id3name">INITIALKEY</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-385" class="external" title="External specification resource">TKEY</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The initial key that a musical track starts in.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="amplification">
+							<th scope="colgroup" colspan="10" class="xheader">Amplification Controls</th>
+						</tr>
+						<tr>
+							<td class="matroska">REPLAYGAIN_GAIN</td>
+							<td class="id3name">VOLUMEADJ2</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-971" class="external" title="External specification resource">RVA2</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The gain to apply to reach 89db SPL on playback. Based on the <a href="http://www.replaygain.org/" class="external" title="External specification resource">Replay Gain</a> standard. Note that ReplayGain information can be found at all TargetType levels (track, album, etc).</td>
+						</tr>
+						<tr>
+							<td class="matroska">REPLAYGAIN_PEAK</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The maximum absolute peak value of the item. Based on the <a href="http://www.replaygain.org/" class="external" title="External specification resource">Replay Gain</a> standard.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">REVERB</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1052" class="external" title="External specification resource">RVRB</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Subjective frame that allows you to adjust echoes of different kinds.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">EQUALIZATION2</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1012" class="external" title="External specification resource">EQU2</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Subjective alignment frame to predefine an equalisation curve within the audio file.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="identifiers">
+							<th scope="colgroup" colspan="10" class="xheader">Identifiers</th>
+						</tr>
+						<tr>
+							<td class="matroska">ISRC</td>
+							<td class="id3name">ISRC</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-317" class="external" title="External specification resource">TSRC</a></td>
+							<td class="vorbis">ISRC</td>
+							<td class="ape">ISRC</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#identifier" class="external" title="External specification resource">identifier</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description"><a href="http://www.ifpi.org/isrc" class="external" title="External specification resource">International Standard Recording Code</a>, excluding the "ISRC" prefix and including hyphens.</td>
+						</tr>
+						<tr>
+							<td class="matroska">MCDI</td>
+							<td class="id3name">CDID</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-706" class="external" title="External specification resource">MCDI</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#identifier" class="external" title="External specification resource">identifier</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Binary dump of the TOC of the CDROM that this item was taken from.</td>
+						</tr>
+						<tr>
+							<td class="matroska">ISBN</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">ISBN</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#identifier" class="external" title="External specification resource">identifier</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description"><a href="http://www.isbn-international.org/" class="external" title="External specification resource">International Standard Book Number</a>.</td>
+						</tr>
+						<tr>
+							<td class="matroska">BARCODE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">EAN/UPN<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">EAN/UPC</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#identifier" class="external" title="External specification resource">identifier</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">EAN-13 (13-digit <a href="http://www.ean-int.org/" class="external" title="External specification resource">European Article Numbering</a>) or UPC-A (12-digit <a href="http://www.uc-council.org/" class="external" title="External specification resource">Universal Product Code</a>) bar code identifier.</td>
+						</tr>
+						<tr>
+							<td class="matroska">LCCN</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#identifier" class="external" title="External specification resource">identifier</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description"><a href="http://www.loc.gov/marc/lccn.html" class="external" title="External specification resource">Library of Congress Control Number</a>.</td>
+						</tr>
+						<tr>
+							<td class="matroska">CATALOG_NUMBER</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">LABELNO<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="ape">CATALOG</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#identifier" class="external" title="External specification resource">identifier</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A label-specific catalogue number  used to identify the release; e.g. &quot;TIC 01&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska">LABEL_CODE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">LC</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#identifier" class="external" title="External specification resource">identifier</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A 4-digit or 5-digit number to identify the record label, typically printed as (LC) xxxx or (LC) 0xxxx on CDs medias or covers, with only the number being stored.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">UNIQUEFILEID</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#sec4.1" class="external" title="External specification resource">UFID</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#identifier" class="external" title="External specification resource">identifier</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Contains an 'Owner identifier' URL followed by an ID to identify the audio file in a database, that may provide more information relevant to the content.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#identifier" class="external" title="External specification resource">identifier</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#bibliographicCitation" class="external" title="External specification resource">bibliographicCitation</a></td>
+
+							<td class="description">A bibliographic reference for the resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">egid</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Podcast episode GUID.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="commercial">
+							<th scope="colgroup" colspan="10" class="xheader">Commercial Information</th>
+						</tr>
+						<tr>
+							<td class="matroska">PURCHASE_INFO</td>
+							<td class="id3name">WWWCOMMERCIALINFO</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-654" class="external" title="External specification resource">WCOM</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Commercial information about this item.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PURCHASE_PRICE</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The amount paid for entity. There should only be a numeric value in here; e.g. "15.59" instead of "$15.59USD".</td>
+						</tr>
+						<tr>
+							<td class="matroska">PURCHASE_CURRENCY</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The <a href="http://www.xe.com/iso4217.htm" class="external" title="External specification resource">ISO-4217</a> currency type used to pay for the entity.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PURCHASE_ITEM</td>
+							<td class="id3name">WWWPAYMENT</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-682" class="external" title="External specification resource">WPAY</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">URL to purchase this item.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PURCHASE_OWNER</td>
+							<td class="id3name">FILEOWNER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-550" class="external" title="External specification resource">TOWN</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Information on the person who purchased the file.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">COMMERCIAL</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1346" class="external" title="External specification resource">COMR</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Commercial frame to store several competing offers in the same tag.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="legal">
+							<th scope="colgroup" colspan="10" class="xheader">Legal Information</th>
+						</tr>
+						<tr>
+							<td class="matroska">COPYRIGHT</td>
+							<td class="id3name">COPYRIGHT</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-525" class="external" title="External specification resource">TCOP</a></td>
+							<td class="vorbis">COPYRIGHT</td>
+							<td class="ape">COPYRIGHT</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ICOP</a></td>
+							<td class="aac">cprt</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#rights" class="external" title="External specification resource">rights</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Copyright attribution.</td>
+						</tr>
+						<tr>
+							<td class="matroska">PRODUCTION_COPYRIGHT</td>
+							<td class="id3name">PRODUCEDNOTICE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-535" class="external" title="External specification resource">TPRO</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">PUBLICATIONRIGHT</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#rights" class="external" title="External specification resource">rights</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">The copyright information as per the productioncopyright holder.</td>
+						</tr>
+						<tr>
+							<td class="matroska">TERMS_OF_USE</td>
+							<td class="id3name">TERMSOFUSE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1311" class="external" title="External specification resource">USER</a></td>
+							<td class="vorbis">LICENSE</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#rights" class="external" title="External specification resource">rights</a></td>
+							<td class="dcrefinement" style="background-color: #FFDAB6"><a href="http://dublincore.org/documents/dcmi-terms/#accessRights" class="external" title="External specification resource">accessRights</a></td>
+
+							<td class="description">License information, e.g., &quot;All Rights Reserved&quot;,&quot;Any Use Permitted&quot;.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><a href="#contact">URL</a><span class="super">[<a href="#note_11">11</a>]</span></td>
+							<td class="id3name">WWWCOPYRIGHT</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-659" class="external" title="External specification resource">WCOP</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Copyright/legal information.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">OWNERSHIP</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1325" class="external" title="External specification resource">OWNE</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#rights" class="external" title="External specification resource">rights</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Might be used as a reminder of a made transaction or, if signed, as proof. Note that the "USER" and "TOWN" frames are good to use in conjunction with this one.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="relational">
+							<th scope="colgroup" colspan="10" class="xheader">Relational Information</th>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">A reference to a related resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#isVersionOf" class="external" title="External specification resource">isVersionOf</a></td>
+
+							<td class="description">The described resource is a version, edition, or adaptation of the referenced resource. Changes in version imply substantive changes in content rather than differences in format.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#hasVersion" class="external" title="External specification resource">hasVersion</a></td>
+
+							<td class="description">The described resource has a version, edition, or adaptation, namely, the referenced resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#isReplacedBy" class="external" title="External specification resource">isReplacedBy</a></td>
+
+							<td class="description">The described resource is supplanted, displaced, or superseded by the referenced resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#replaces" class="external" title="External specification resource">replaces</a></td>
+
+							<td class="description">The described resource supplants, displaces, or supersedes the referenced resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#isRequiredBy" class="external" title="External specification resource">isRequiredBy</a></td>
+
+							<td class="description">The described resource is required by the referenced resource, either physically or logically.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#requires" class="external" title="External specification resource">requires</a></td>
+
+							<td class="description">The described resource requires the referenced resource to support its function, delivery, or coherence of content.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#isPartOf" class="external" title="External specification resource">isPartOf</a></td>
+
+							<td class="description">The described resource is a physical or logical part of the referenced resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#hasPart" class="external" title="External specification resource">hasPart</a></td>
+
+							<td class="description">The described resource includes the referenced resource either physically or logically.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#isReferencedBy" class="external" title="External specification resource">isReferencedBy</a></td>
+
+							<td class="description">The described resource is referenced, cited, or otherwise pointed to by the referenced resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#references" class="external" title="External specification resource">references</a></td>
+
+							<td class="description">The described resource references, cites, or otherwise points to the referenced resource.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#isFormatOf" class="external" title="External specification resource">isFormatOf</a></td>
+
+							<td class="description">The described resource is the same intellectual content of the referenced resource, but presented in another format.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#hasFormat" class="external" title="External specification resource">hasFormat</a></td>
+
+							<td class="description">The described resource pre-existed the referenced resource, which is essentially the same intellectual content presented in another format.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement"><a href="http://dublincore.org/documents/dcmi-terms/#relation" class="external" title="External specification resource">relation</a></td>
+							<td class="dcrefinement"><a href="http://dublincore.org/documents/dcmi-terms/#conformsTo" class="external" title="External specification resource">conformsTo</a></td>
+
+							<td class="description">A reference to an established standard to which the resource conforms.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="encryption">
+							<th scope="colgroup" colspan="10" class="xheader">Encryption Information</th>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#ContentEncryption">ContentEncryption</a> -</i></td>
+							<td class="id3name">AUDIOCRYPTO</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1222" class="external" title="External specification resource">AENC</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Indicates if the actual audio stream is encrypted, and by whom.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#ContentEncAlgo">ContentEncAlgo</a> -</i></td>
+							<td class="id3name">CRYPTOREG</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1398" class="external" title="External specification resource">ENCR</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">To identify with which method a frame has been encrypted.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">GROUPINGREG</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1422" class="external" title="External specification resource">GRID</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Enables grouping of otherwise unrelated frames; e.g. when some frames are to be signed.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">SIGNATURE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1464" class="external" title="External specification resource">SIGN</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Enables a group of frames, grouped with GROUPINGREG, to be signed.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr id="miscellaneous">
+							<th scope="colgroup" colspan="10" class="xheader">Miscellaneous Information</th>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#Attachment">Attachment</a> elements -</i></td>
+							<td class="id3name">UNSYNCEDLYRICS</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-861" class="external" title="External specification resource">USLT</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&copy;lyr</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Contains the lyrics of the song or a text transcription of other vocal activities.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- muxed with audio as subtitles -</i></td>
+							<td class="id3name">SYNCEDLYRICS</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-879" class="external" title="External specification resource">SYLT</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Synchronised lyrics/text.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#Attachment">Attachment</a> elements -</i></td>
+							<td class="id3name">PICTURE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1085" class="external" title="External specification resource">APIC</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">covr</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Contains a picture directly related to the audio file.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#Attachment">Attachment</a> elements -</i></td>
+							<td class="id3name">GENERALOBJECT</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1133" class="external" title="External specification resource">GEOB</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">In this frame any type of file can be encapsulated.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">PRIVATE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1447" class="external" title="External specification resource">PRIV</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Contains information used by a program which does not fit into the other frames.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">USERTEXT</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-621" class="external" title="External specification resource">TXXX</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">User defined text information frame.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">LINKEDINFO</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-1250" class="external" title="External specification resource">LINK</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Used to link information from another ID3v2 tag.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">ORIGFILENAME</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-565" class="external" title="External specification resource">TOFN</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Contains the preferred filename for the file</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">NETRADIOSTATION</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-554" class="external" title="External specification resource">TRSN</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Contains the name of the internet radio station from which the audio is streamed.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">NETRADIOOWNER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-558" class="external" title="External specification resource">TRSO</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Contains the name of the owner of the internet radio station from which the audio is streamed.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">WWWRADIOPAGE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-678" class="external" title="External specification resource">WORS</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Official internet radio station homepage.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- nested using <a href="#contact">URL</a> -</i></td>
+							<td class="id3name">WWWUSER</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-691" class="external" title="External specification resource">WXXX</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IWEB<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">User defined URL link frame.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">WWWAUDIOFILE</td>
+							<td class="id3code"><a href="http://www.id3.org/id3v2.4.0-frames#line-664" class="external" title="External specification resource">WOAF</a></td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">purl</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">URL pointing at a file specific webpage (official audio file webpage).</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">RELATED</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Location of related information.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">BIBLIOGRAPHY</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Bibliography/Discography.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">INTROPLAY</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Characteristic part of piece for intro playing.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#WritingApp">WritingApp</a> -</i></td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">ISFT</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Software. Identifies the name of the software package used to create the file, such as "Microsoft WaveEdit."</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff"><a href="http://www.matroska.org/technical/specs/tagging/othertagsystems/riffmcispecs.html" class="external" title="External specification resource">IARL</a></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Archival Location. Indicates where the subject of the file is archived.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IAS1<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the name of the language of the first audio stream.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IAS2<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the name of the language of the second audio stream.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IAS3<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the name of the language of the third audio stream.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IAS4<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the name of the language of the fourth audio stream.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IAS5<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the name of the language of the fifth audio stream.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IAS6<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the name of the language of the sixth audio stream.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IAS7<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the name of the language of the seventh audio stream.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IAS8<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the name of the language of the eighth audio stream.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IAS9<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the name of the language of the ninth audio stream.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">ICAS<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Identifies the common audio stream. For example when the value is set to '2' the 2nd audio stream, defined by IAS1 to IAS9, will be played by default. '0' is the local machine language.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IBSU<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Base URL.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">ILGU<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Logo URL.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">ILIU<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Logo Icon URL.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IWMU<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Watermark URL.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IMIU<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">More Info URL.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IMBI<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">More Info Banner Image.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IMBU<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">More Info Banner URL.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">IMIT<span class="super">[<a href="#note_1">1</a>]</span></td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">More Info Text.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">cpil</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Boolean to mark tracks as part of a compilation.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">pcst</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Boolean to mark tracks as part of a gapless album.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">&nbsp;</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">pgap</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Boolean to mark tracks being a podcast.</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<th scope="colgroup" colspan="10" class="xheader" style="font-style: italic;">Not Grouped (yet)</th>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">FILE</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">File location.</td>
+						</tr>
+						<tr>
+							<td class="matroska">&nbsp;</td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">MEDIA</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Source, Source Media Number/Total Media Number,Source Time.</td>
+						</tr>
+						<tr>
+							<td class="matroska"><i>- stored in <a href="http://www.matroska.org/technical/specs/index.html#MetaSeekInformation">Meta Seek Information</a> elements and <a href="http://www.matroska.org/technical/specs/index.html#Cues">Cues</a> -</i></td>
+							<td class="id3name">&nbsp;</td>
+							<td class="id3code">&nbsp;</td>
+							<td class="vorbis">&nbsp;</td>
+							<td class="ape">INDEX</td>
+							<td class="riff">&nbsp;</td>
+							<td class="aac">&nbsp;</td>
+
+							<td class="dcelement">&nbsp;</td>
+							<td class="dcrefinement">&nbsp;</td>
+
+							<td class="description">Indexes for quick access.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+  		<div class="footer">
+				<span class="cc">
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">
+						<img alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.png" />
+					</a>
+					<br/>
+					This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">Creative Commons Attribution-NonCommercial 2.5  License</a>
+				</span>
+				<span class="ss">
+					<form action="http://www.slysoft.com" method="post" class="ss">
+						<input type="hidden" name="aid" value="50428" />
+						<input type="image" src="http://www.slysoft.com/img/banner/slysoft-banner-103-en-120x60.gif" name="submit" alt="SlySoft CloneDVD mobile Banner" title="Copy your DVD movie to your portable device with CloneDVD mobile" />
+					</form>
+				</span>
+  			<span>
+					&copy; 2004-2007 by <a href="mailto:age@hobba.nl">Age Bosma</a>, Last modified: 2007-04-10 17:00<br />
+					<a href="/contact.html" accesskey="9">Contact</a>
+				</span>
+  		</div>
+		</div>
+	</body>
+</html>

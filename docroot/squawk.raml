@@ -1,0 +1,24 @@
+#%RAML 0.8
+title: squawk
+version: 1.0
+baseUri: http://squawk_dev.spielhuus.org:9000/
+
+/query:
+    get:
+      queryParameters:
+          index:
+            displayName: index
+            type: integer
+            description: result list start index.
+            example: 0
+            required: false
+          count:
+          filter:
+          sort:
+
+    /{id}:
+      get:
+/count:
+  get:
+  /{id}:
+    get:
