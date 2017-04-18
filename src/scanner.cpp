@@ -517,16 +517,15 @@ struct ParseVideo {
     static std::error_code run( Connection connection, const std::string& filename, const std::string path, const std::string name, const http::mime::MIME_TYPE& mime_type, const int filesize, const int mtime ) {
         CLOG(TRACE, "cds") << "import movie:" << filename;
 
-        av::Format _format;
-        std::error_code _errc;
-        if( ( _errc = _format.open( filename ) ) )
-        { return _errc; }
+        av::Format _format( filename );
+        if( !!_format )
+        { return _format.errc(); }
 //        commons::media::MediaFile media_file = commons::media::MediaParser::parseFile ( filename );
         int width_ = 0, height_ = 0, bitrate_ = 0, color_depth_ = 0, duration_ = 0;
-        for ( auto stream_ : _format.streams() ) {
-            width_ = stream_.width();
-            height_ = stream_.height();
-            bitrate_ = stream_.bitrate();
+        for ( auto stream_ : _format ) {
+            width_ = stream_->width();
+            height_ = stream_->height();
+            bitrate_ = stream_->bitrate();
             //TODO color_depth_ = stream_.
             //TODO duration_ = stream_.
         }
@@ -565,10 +564,9 @@ struct ParseAudio {
         CLOG(TRACE, "cds") << "import audio:" << filename;
 
         //Get the track information
-        av::Format _format;
-        std::error_code _errc;
-        if( ( _errc = _format.open( filename ) ) )
-        { return _errc; }
+        av::Format _format( filename );
+        if( !!_format )
+        { return _format.errc(); }
 
         av::Metadata _metadata = _format.metadata();
         size_t track_number_ = 0;
@@ -590,11 +588,11 @@ struct ParseAudio {
         }
 
         int bitrate_=0, bits_per_sample_=0, nr_audio_channels_=0, sample_frequency_=0;
-        for ( auto & stream_ : _format.streams() ) {
-            bitrate_ = stream_.bitrate();
-            bits_per_sample_ = stream_.bits_per_sample();
-            nr_audio_channels_ = stream_.channels();
-            sample_frequency_ = stream_.samplerate();
+        for ( auto stream_ : _format ) {
+            bitrate_ = stream_->bitrate();
+            bits_per_sample_ = stream_->bits_per_sample();
+            nr_audio_channels_ = stream_->channels();
+            sample_frequency_ = stream_->samplerate();
         }
 
         //save track

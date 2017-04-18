@@ -7,7 +7,7 @@
 #include "../ssdp/ssdp.h"
 
 #include "format.h"
-#include "stream.h"
+#include "codec.h"
 
 #include "../utils/xml.h"
 #include "http/httpclient.h"
@@ -347,31 +347,31 @@ private:
 static std::string profile ( const av::Format& format ) {
     std::stringstream _result_VIDEO;
     std::stringstream _result_AUDIO;
-    auto _streams = format.streams();
+//    auto _streams = format.streams();
 
-    if( _streams.size() > 0 ) {
-        for( auto stream : _streams ) {
-            if( stream.codec_type() == av::CodecType::AUDIO ) {
-                switch( stream.codec() ) {
-                    case av::Codec::FLAC:
-                        _result_AUDIO << "FLAC";
-                        if( stream.bits_per_sample() >> 16 ) {
-                            _result_AUDIO << "_HD";
-                        }
-                    break;
+//    if( _streams.size() > 0 ) {
+//TODO        for( auto stream : _streams ) {
+//            if( stream.codec_type() == av::CodecType::AUDIO ) {
+//                switch( stream.codec() ) {
+//                    case av::Codec::FLAC:
+//                        _result_AUDIO << "FLAC";
+//                        if( stream.bits_per_sample() >> 16 ) {
+//                            _result_AUDIO << "_HD";
+//                        }
+//                    break;
 
-                case av::Codec::MP3:
-                    _result_AUDIO << "MP3";
-                    break;
+//                case av::Codec::MP3:
+//                    _result_AUDIO << "MP3";
+//                    break;
 
-                default:
-                    std::cout << "unkown audio codec: " << av::Codec::name( stream.codec() ) << std::endl;
-                }
-            } else if( stream.codec_type() == av::CodecType::VIDEO) {
-                std::cout << "video: " << std::endl;
-            }
-        }
-    }
+//                default:
+//                    std::cout << "unkown audio codec: " << av::Codec::name( stream.codec() ) << std::endl;
+//                }
+//            } else if( stream.codec_type() == av::CodecType::VIDEO) {
+//                std::cout << "video: " << std::endl;
+//            }
+//        }
+//    }
     return _result_VIDEO.str() + _result_AUDIO.str();
 }
 
