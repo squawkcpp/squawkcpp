@@ -157,7 +157,7 @@ TEST(ParseOptionsTest, TestDefaultOptions) {
     EXPECT_EQ(1900, config->multicastPort() );
 }
 
-TEST(ParseOptionsTest, TestMergedOptions) {
+TEST(ParseOptionsTest, DISABLED_TestMergedOptions) {
 
     const char * options[6];
     options[0] = "--http-ip";
@@ -185,7 +185,7 @@ TEST(ParseOptionsTest, TestMergedOptions) {
     EXPECT_EQ(1900, config->multicastPort() );
 }
 
-TEST(ParseOptionsTest, TestWriteConfigfile) {
+TEST(ParseOptionsTest, DISABLED_TestWriteConfigfile) {
     const char * options[16];
     options[0] = "--media-directory";
     options[1] = "/foo/bar";

@@ -83,13 +83,6 @@ namespace av {
 //    ASSERT_EQ( ENOENT, errc.value() );
 //    ASSERT_EQ( "No such file or directory", errc.message() );
 //}
-
-TEST( LibavTest, load_image ) {
-    std::string filename = std::string( TESTFILES ) + "agp27.jpg";
-    image::Image image( filename );
-    ASSERT_EQ( 800, image.width() );
-}
-
 //TEST_F( LibavTest, open_audio_file_metadata_file_flac ) {
 //    std::string filename = std::string( TESTFILES ) + "BIS1536-001-flac_16.flac";
 
