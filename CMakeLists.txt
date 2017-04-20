@@ -140,7 +140,7 @@ add_custom_target(bower /usr/local/bin/bower --no-color -f -s --allow-root insta
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMENT "Download Bower Components" VERBATIM
 )
-install(DIRECTORY ${CMAKE_BINARY_DIR}/bower_components/ DESTINATION var/lib/squawk/bower_components )
+# install(DIRECTORY ${CMAKE_BINARY_DIR}/bower_components/ DESTINATION var/lib/squawk/bower_components )
 
 # -------------------------------------------------------------------------
 # -----------------------   Doxygen                 -----------------------
@@ -175,8 +175,8 @@ SET(CPACK_PACKAGE_VERSION_MINOR "${MINOR_VERSION}")
 SET(CPACK_PACKAGE_VERSION_PATCH "${PATCH_VERSION}")
 SET(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}")
 SET(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${MAJOR_VERSION}.${MINOR_VERSION}.${CPACK_PACKAGE_VERSION_PATCH}")
-SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libpcrecpp0, libimlib2, libavcodec54, libavformat54, libavutil52, libpoppler-cpp0, libboost-filesystem1.54.0")
-#SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libpcrecpp0, libimlib2, libavcodec54, libavformat54, libavutil52, libpoppler-cpp0, libcurlpp0, libboost-filesystem1.54.0")
+
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libpcrecpp0v5, libimlib2, libavcodec-ffmpeg56, libavformat-ffmpeg56, libavutil-ffmpeg54, libpoppler-cpp0, libboost-filesystem1.58.0")
 SET(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
 SET(CPACK_DEBIAN_PACKAGE_SECTION "media")
 SET(CPACK_DEBIAN_ARCHITECTURE ${CMAKE_SYSTEM_PROCESSOR})

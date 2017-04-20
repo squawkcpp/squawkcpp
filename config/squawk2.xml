@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <squawk>
-  <config-file>/home/e3a/tmp/squawk/config/squawk2.xml</config-file>
+  <config-file>/home/etienne/squawkcpp/config/squawk2.xml</config-file>
   <cover-names>
     <cover-name>cover</cover-name>
     <cover-name>front</cover-name>
@@ -9,17 +9,14 @@
   <database-file>/var/cache/squawk/squawk.db</database-file>
   <http-bower>/home/e3a/tmp/build-squawk-Desktop-Debug/</http-bower>
   <http-docroot>/home/e3a/tmp/squawk/docroot/</http-docroot>
-  <http-ip>192.168.0.17</http-ip>
+  <http-ip>172.17.0.3</http-ip>
   <http-port>9000</http-port>
-  <local-address>192.168.0.17</local-address>
+  <local-address>172.17.0.3</local-address>
   <logger/>
   <media-directories>
-    <media-directory>/home/e3a/Pictures</media-directory>
-    <media-directory>/home/Movies</media-directory>
-    <media-directory>/home/Downloads</media-directory>
-    <media-directory>/home/Music/Book Of Angels</media-directory>
-    <media-directory>/home/Music/Metall</media-directory>
-    <media-directory>/home/Music/Experimental/</media-directory>
+    <media-directory>/srv/Music/Book Of Angels</media-directory>
+    <media-directory>/srv/Music/Metall</media-directory>
+    <media-directory>/srv/Music/Experimental/</media-directory>
   </media-directories>
   <multicast-address>239.255.255.250</multicast-address>
   <multicast-port>1900</multicast-port>
