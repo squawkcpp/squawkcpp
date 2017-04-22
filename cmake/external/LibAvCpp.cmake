@@ -10,12 +10,12 @@ ExternalProject_Add(
   INSTALL_COMMAND ""
   UPDATE_COMMAND ""
   PATCH_COMMAND ""
-  BUILD_BYPRODUCTS libavcpp_master-prefix/src/libavcpp_master-build/libavcpp/libavcpp.so
+  BUILD_BYPRODUCTS libavcpp_master-prefix/src/libavcpp_master-build/libavcpp/libavcpp.a
 )
 ExternalProject_Get_Property(libavcpp_master source_dir)
 set(LIBAV_INCLUDE_DIR ${source_dir}/libavcpp/)
 ExternalProject_Get_Property(libavcpp_master binary_dir)
-set(LIBAV_LIBRARIES ${binary_dir}/libavcpp/${CMAKE_FIND_LIBRARY_PREFIXES}avcpp.so)
+set(LIBAV_LIBRARIES ${binary_dir}/libavcpp/${CMAKE_FIND_LIBRARY_PREFIXES}avcpp.a)
 set(LIBAV_LIBRARY LibAvCpp)
 add_library(${LIBAV_LIBRARY} UNKNOWN IMPORTED)
 set_property(TARGET ${LIBAV_LIBRARY} PROPERTY IMPORTED_LOCATION ${LIBAV_LIBRARIES} )
