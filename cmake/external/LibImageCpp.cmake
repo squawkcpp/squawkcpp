@@ -10,12 +10,12 @@ ExternalProject_Add(
   INSTALL_COMMAND ""
   UPDATE_COMMAND ""
   PATCH_COMMAND ""
-  BUILD_BYPRODUCTS libimagecpp_master-prefix/src/libimagecpp_master-build/libimagecpp/libimagecpp.so
+  BUILD_BYPRODUCTS libimagecpp_master-prefix/src/libimagecpp_master-build/libimagecpp/libimagecpp.a
 )
 ExternalProject_Get_Property(libimagecpp_master source_dir)
 set(LIB_IMAGE_INCLUDE_DIR ${source_dir}/libimagecpp/)
 ExternalProject_Get_Property(libimagecpp_master binary_dir)
-set(LIB_IMAGE_LIBRARIES ${binary_dir}/libimagecpp/${CMAKE_FIND_LIBRARY_PREFIXES}imagecpp.so)
+set(LIB_IMAGE_LIBRARIES ${binary_dir}/libimagecpp/${CMAKE_FIND_LIBRARY_PREFIXES}imagecpp.a)
 set(LIBIMAGE_LIBRARY LibImageCpp)
 add_library(${LIBIMAGE_LIBRARY} UNKNOWN IMPORTED)
 set_property(TARGET ${LIBIMAGE_LIBRARY} PROPERTY IMPORTED_LOCATION ${LIB_IMAGE_LIBRARIES} )
