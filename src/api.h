@@ -58,7 +58,7 @@ static void albumCoverUri( W& writer, Connection con, const int id ) {
     dao::child< upnp::didl::DidlAlbumArt > ( con, "(title='front' or title='poster')", [&writer] (auto statement) {
         writer.String( "albumArtUri" );
         writer.String( fmt::format( "http://{0}:{1}/albumArt/tn_{2}.jpg",
-                       squawk::Config::instance()->httpAddress(),
+                       squawk::Config::instance()->httpHost(),
                        squawk::Config::instance()->httpPort(),
                        db::get< size_t >( statement, upnp::didl::DidlAlbumArt::id ) ).c_str() );
     }, id );
@@ -73,13 +73,13 @@ static void albumArtUri( W& writer, Connection con, const int id ) {
         writer.String( db::get< const char * >( statement, upnp::didl::DidlAlbumArt::title ) );
         writer.String( "uri" );
         writer.String( fmt::format( "http://{0}:{1}/res/{2}.{3}",
-                       squawk::Config::instance()->httpAddress(),
+                       squawk::Config::instance()->httpHost(),
                        squawk::Config::instance()->httpPort(),
                        db::get< size_t >( statement, upnp::didl::DidlAlbumArt::id ),
                        http::mime::extension( db::get< http::mime::MIME_TYPE >( statement, upnp::didl::DidlAlbumArt::mime_type ) ) ).c_str() );
         writer.String( "TN" );
         writer.String( fmt::format( "http://{0}:{1}/albumArt/tn_{2}.jpg",
-                       squawk::Config::instance()->httpAddress(),
+                       squawk::Config::instance()->httpHost(),
                        squawk::Config::instance()->httpPort(),
                        db::get< size_t >( statement, upnp::didl::DidlAlbumArt::id ) ).c_str() );
         writer.EndObject();
@@ -179,7 +179,7 @@ struct Api {
                     writer.String( db::get< const char* >( statement, upnp::didl::DidlMusicTrack::comment ) );
                     writer.String( "uri" );
                     writer.String( fmt::format( "http://{0}:{1}/res/{2}.{3}",
-                                   squawk::Config::instance()->httpAddress(),
+                                   squawk::Config::instance()->httpHost(),
                                    squawk::Config::instance()->httpPort(),
                                    db::get< const char* >( statement, upnp::didl::DidlMusicTrack::id ),
                                    http::mime::extension( db::get< http::mime::MIME_TYPE >( statement, upnp::didl::DidlMusicTrack::mime_type ) ) ).c_str() );
@@ -234,7 +234,7 @@ struct Api {
                 writer.String( db::get< const char* >( statement, upnp::didl::DidlEBook::isbn) );
                 writer.String( "uri" );
                 writer.String( fmt::format( "http://{0}:{1}/res/{2}.{3}",
-                               squawk::Config::instance()->httpAddress(),
+                               squawk::Config::instance()->httpHost(),
                                squawk::Config::instance()->httpPort(),
                                db::get< const char* >( statement, upnp::didl::DidlEBook::id ),
                                http::mime::extension( db::get< http::mime::MIME_TYPE >( statement, upnp::didl::DidlEBook::mime_type ) ) ).c_str() );
@@ -296,7 +296,7 @@ struct Api {
 //                writer.String( db::get< const char* >( statement, upnp::didl::_DidlMovie::isbn) );
                 writer.String( "uri" );
                 writer.String( fmt::format( "http://{0}:{1}/res/{2}.{3}",
-                               squawk::Config::instance()->httpAddress(),
+                               squawk::Config::instance()->httpHost(),
                                squawk::Config::instance()->httpPort(),
                                db::get< const char* >( statement, upnp::didl::DidlMovie::id ),
                                http::mime::extension( db::get< http::mime::MIME_TYPE >( statement, upnp::didl::DidlMovie::mime_type ) ) ).c_str() );
@@ -356,7 +356,7 @@ struct Api {
                 writer.String( db::get< const char* >( statement, upnp::didl::DidlContainerSeries::comment ) );
                 writer.String( "uri" );
                 writer.String( fmt::format( "http://{0}:{1}/res/{2}.{3}",
-                               squawk::Config::instance()->httpAddress(),
+                               squawk::Config::instance()->httpHost(),
                                squawk::Config::instance()->httpPort(),
                                db::get< const char* >( statement, upnp::didl::DidlContainerSeries::id ),
                                http::mime::extension( db::get< http::mime::MIME_TYPE >( statement, upnp::didl::DidlContainerSeries::mime_type ) ) ).c_str() );

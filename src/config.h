@@ -53,7 +53,7 @@ public:
     /** @brief the multicast port */
     int multicastPort();
     /** @brief the http address */
-    std::string httpAddress();
+    std::string httpHost();
     /** @brief the http port */
     int httpPort();
     /** @brief the local listen address */

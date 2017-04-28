@@ -64,7 +64,7 @@ void DidlWriter::write(db::sqlite3_stmt_ptr statement) {
             commons::xml::Node dlna_album_art_node =
                 xml_writer_->element ( container_element, upnp::XML_NS_UPNP, didl::DIDL_ALBUM_ART_URI,
                                        fmt::format( "http://{0}:{1}/albumArt/tn_{2}.jpg",
-                                                    squawk::Config::instance()->httpAddress(),
+                                                    squawk::Config::instance()->httpHost(),
                                                     squawk::Config::instance()->httpPort(),
                                                     db::get< size_t >( statement, didl::DidlContainerAlbum::id ) ) );
             xml_writer_->ns ( dlna_album_art_node, upnp::XML_NS_DLNA_METADATA, "dlna", false );
@@ -124,7 +124,7 @@ void DidlWriter::write(db::sqlite3_stmt_ptr statement) {
         //write track resources
         commons::xml::Node dlna_res_node = xml_writer_->element ( item_element_, "", "res",
             fmt::format( "http://{0}:{1}/res/{2}.{3}",
-                squawk::Config::instance()->httpAddress(),
+                squawk::Config::instance()->httpHost(),
                 squawk::Config::instance()->httpPort(),
                 db::get< const char* >( statement, didl::DidlMusicTrack::id ),
                 http::mime::extension( db::get< http::mime::MIME_TYPE >( statement, didl::DidlMusicTrack::mime_type ) ) ).c_str() );
@@ -153,7 +153,7 @@ void DidlWriter::write(db::sqlite3_stmt_ptr statement) {
             commons::xml::Node dlna_album_art_node =
                 xml_writer_->element ( item_element_, upnp::XML_NS_UPNP, didl::DIDL_ALBUM_ART_URI,
                                        fmt::format( "http://{0}:{1}/albumArt/med_{2}.jpg",
-                                                    squawk::Config::instance()->httpAddress(),
+                                                    squawk::Config::instance()->httpHost(),
                                                     squawk::Config::instance()->httpPort(),
                                                     db::get< size_t >( statement, didl::DidlAlbumArt::id ) ) );
             xml_writer_->ns ( dlna_album_art_node, upnp::XML_NS_DLNA_METADATA, "dlna", false );
@@ -172,7 +172,7 @@ void DidlWriter::write(db::sqlite3_stmt_ptr statement) {
         const std::string _mime_type = http::mime::mime_type ( db::get< http::mime::MIME_TYPE >( statement, didl::DidlPhoto::mime_type ) );
         commons::xml::Node dlna_res_node = xml_writer_->element ( item_element_, "", "res",
             fmt::format( "http://{0}:{1}/res/{2}.{3}",
-                squawk::Config::instance()->httpAddress(),
+                squawk::Config::instance()->httpHost(),
                 squawk::Config::instance()->httpPort(),
                 db::get< const char* >( statement, didl::DidlPhoto::id ),
                 http::mime::extension( db::get< http::mime::MIME_TYPE >( statement, didl::DidlPhoto::mime_type ) ) ).c_str() );
@@ -219,7 +219,7 @@ void DidlWriter::write(db::sqlite3_stmt_ptr statement) {
 
         commons::xml::Node dlna_res_node = xml_writer_->element ( item_element_, "", "res",
             fmt::format( "http://{0}:{1}/res/{2}.{3}",
-                squawk::Config::instance()->httpAddress(),
+                squawk::Config::instance()->httpHost(),
                 squawk::Config::instance()->httpPort(),
                 db::get< const char* >( statement, didl::DidlMovie::id ),
                 http::mime::extension( db::get< http::mime::MIME_TYPE >( statement, didl::DidlMovie::mime_type ) ) ).c_str() );
@@ -251,6 +251,6 @@ void DidlWriter::write(db::sqlite3_stmt_ptr statement) {
     }
 }
 std::string DidlWriter::http_uri ( const std::string& suffix ) {
-    return fmt::format( "http://{0}:{1}/{2}", squawk::Config::instance()->httpAddress(), squawk::Config::instance()->httpPort(), suffix );
+    return fmt::format( "http://{0}:{1}/{2}", squawk::Config::instance()->httpHost(), squawk::Config::instance()->httpPort(), suffix );
 }
 }//namespace upnp

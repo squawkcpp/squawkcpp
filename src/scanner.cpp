@@ -351,6 +351,7 @@ struct ImportBook {
             std::cout << "import book: " << db::get< size_t >( statement, 0 ) << ":" << db::get< const char * >( statement, 1 ) << std::endl;
             std::this_thread::sleep_for(std::chrono::milliseconds( 1000 ) ); //wait not to overload...
 
+            std::cout << "lookup on amazon" << std::endl;
                 utils::BookResultItem _res = utils::AmazonFacade::bookByIsbn( "AKIAJL7OW25HI5DRKZJQ", "0TuOhtV6gitsfeWEbkmE4NYZcszvXH2W43rnf77R",
                                                                         db::get< const char * >( statement, 1 ) );
                 if( _res.count == 0 || _res.status != 200 ) {

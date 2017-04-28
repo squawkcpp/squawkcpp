@@ -74,7 +74,7 @@ std::string Config::multicastAddress() {
 int Config::multicastPort() {
     return std::stoi( store[ CONFIG_MULTICAST_PORT ].front() );
 }
-std::string Config::httpAddress() {
+std::string Config::httpHost() {
     return store[ CONFIG_HTTP_IP ].front();
 }
 int Config::httpPort() {

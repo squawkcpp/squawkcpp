@@ -59,7 +59,7 @@ void SquawkServer::start() {
 
     /** Setup and start the HTTP Server **/
     web_server = std::shared_ptr< http::Server< http::HttpServer > >( new http::Server< http::HttpServer >(
-        Config::instance()->httpAddress(),
+        Config::instance()->localListenAddress(),
         std::to_string( Config::instance()->httpPort() )
     ));
 
@@ -136,7 +136,7 @@ void SquawkServer::start() {
 //        new squawk::UpnpContentDirectoryApi( "/api/(upnp/device|upnp/event|album|artist|track|browse|statistic)/?(\\d*)?") ) );
 
     /** Setup and start the SSDP Server **/
-    const std::string device_uri_ = fmt::format( "http://{}:{}/rootDesc.xml", Config::instance()->httpAddress(), Config::instance()->httpPort() );
+    const std::string device_uri_ = fmt::format( "http://{}:{}/rootDesc.xml", Config::instance()->httpHost(), Config::instance()->httpPort() );
     _ssdp_server = std::shared_ptr< ssdp::SSDPServerImpl >( new ssdp::SSDPServerImpl(
         Config::instance()->uuid(),
         Config::instance()->multicastAddress(),

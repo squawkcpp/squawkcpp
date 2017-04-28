@@ -73,7 +73,7 @@ TEST(ParseOptionsTest, TestAllOptions) {
     ASSERT_TRUE(config->rescan);
     EXPECT_EQ(std::string("/foo/bar.logger"), config->logger() );
     EXPECT_EQ(std::string("/foo/bar"), config->mediaDirectories().front() );
-    EXPECT_EQ(std::string("127.0.0.1"), config->httpAddress() );
+    EXPECT_EQ(std::string("127.0.0.1"), config->httpHost() );
     EXPECT_EQ(8080, config->httpPort() );
     EXPECT_EQ(std::string("/foo/bar/docroot"), config->docRoot() );
     EXPECT_EQ(std::string("/foo/bar.db"), config->databaseFile() );
@@ -147,7 +147,7 @@ TEST(ParseOptionsTest, TestDefaultOptions) {
     EXPECT_EQ(std::string("/foo/bar"),  *(config->mediaDirectories().begin() ) );
     EXPECT_EQ(std::string("/foo/bar2"), *(++config->mediaDirectories().begin() ) );
 
-    EXPECT_EQ(std::string("127.0.0.1"), config->httpAddress());
+    EXPECT_EQ(std::string("127.0.0.1"), config->httpHost());
     EXPECT_EQ(8080, config->httpPort());
     EXPECT_EQ(std::string("/foo/bar/docroot"), config->docRoot() );
     EXPECT_EQ(std::string("/foo/bar.db"), config->databaseFile() );
@@ -173,7 +173,7 @@ TEST(ParseOptionsTest, DISABLED_TestMergedOptions) {
     config->load(std::string( CMAKE_SOURCE_DIR ) + "config/squawk.xml");
     ASSERT_TRUE(config->validate());
 
-    EXPECT_EQ(std::string("127.0.0.1"), config->httpAddress());
+    EXPECT_EQ(std::string("127.0.0.1"), config->httpHost());
 
     EXPECT_EQ(std::string("/home/Pictures"), config->mediaDirectories().front() );
     EXPECT_EQ(8080, config->httpPort());
