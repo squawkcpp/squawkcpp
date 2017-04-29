@@ -29,7 +29,7 @@ SSDPServerConnection::SSDPServerConnection ( const std::string & multicast_addre
     multicast_port ( multicast_port ), _handler ( handler ) {
 
 	asio::ip::address _multicast_address = asio::ip::address::from_string ( multicast_address );
-	asio::ip::address _listen_address = asio::ip::address::from_string ( "0.0.0.0" );
+    asio::ip::address _listen_address = asio::ip::address::from_string ( "192.168.0.1" /*TODO*/ );
 
 	// Create the socket so that multiple may be bound to the same address.
 	asio::ip::udp::endpoint listen_endpoint ( _listen_address, multicast_port );
