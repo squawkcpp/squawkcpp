@@ -69,6 +69,7 @@ void SSDPServerConnection::send ( std::string request_line, std::map< std::strin
 
 void SSDPServerConnection::send ( SsdpResponse response ) {
     std::string buffer = ssdp::create_header ( response.request_line, response.headers );
+    std::cout << "send response: " << sender_endpoint.address().to_string() << std::endl;
 	socket.send_to (
 		asio::buffer ( buffer, buffer.length() ), sender_endpoint );
 }
