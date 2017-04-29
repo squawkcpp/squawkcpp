@@ -32,6 +32,7 @@ SSDPServerConnection::SSDPServerConnection ( const std::string & multicast_addre
     asio::ip::address _listen_address = asio::ip::address::from_string ( "0.0.0.0" );
 
 	// Create the socket so that multiple may be bound to the same address.
+    std::cout << "bind to: " << _listen_address << ":" <<  multicast_port << std::endl;
 	asio::ip::udp::endpoint listen_endpoint ( _listen_address, multicast_port );
 	socket.open ( listen_endpoint.protocol() );
 	socket.set_option ( asio::ip::udp::socket::reuse_address ( true ) );
