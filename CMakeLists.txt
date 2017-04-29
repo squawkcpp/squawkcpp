@@ -158,6 +158,7 @@ endif(DOXYGEN_FOUND)
 # -----------------------   Generate Package        -----------------------
 # -------------------------------------------------------------------------
 IF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/docroot/ DESTINATION var/lib/squawk/docroot )
 INCLUDE(InstallRequiredSystemLibraries)
 
 SET(CPACK_SET_DESTDIR "on")
