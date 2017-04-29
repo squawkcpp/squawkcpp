@@ -200,6 +200,8 @@ void SquawkServer::cleanup_upnp_devices() {
 
 void SquawkServer::ssdp_event( ssdp::SSDP_EVENT_TYPE type, std::string, ssdp::SsdpEvent device ) {
 
+    std::cout << "event " << device << std::endl;
+
     //nt            device type
     //nts           event type
     //usn           device endpoint uuid

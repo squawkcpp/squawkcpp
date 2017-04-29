@@ -905,12 +905,13 @@ inline upnp::UpnpDevice deviceDescription( const ssdp::SsdpEvent& event ) {
 
     //make the request
     std::stringstream _sstream;
-    auto _response = http::get( event.location, _sstream );
-    if( _response.status() == http::http_status::OK ) {
-        parseDescription( _sstream.str(), _device );
-    } else {
-        CLOG( ERROR, "upnp" ) << "get device description returned " << static_cast< int >( _response.status() ) << ", for " << event.location;
-    }
+    std::cout << "get device description " << event.location << std::endl;
+//    auto _response = http::get( event.location, _sstream );
+//    if( _response.status() == http::http_status::OK ) {
+//        parseDescription( _sstream.str(), _device );
+//    } else {
+//        CLOG( ERROR, "upnp" ) << "get device description returned " << static_cast< int >( _response.status() ) << ", for " << event.location;
+//    }
     return _device;
 }
 
