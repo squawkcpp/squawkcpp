@@ -23,7 +23,7 @@ void SSDPClientConnection::send ( const std::string & request_line, const std::m
 	std::string message = create_header ( request_line, headers );
 
     asio::ip::udp::endpoint endpoint ( asio::ip::address::from_string ( multicast_address.c_str() ), multicast_port );
-    asio::ip::address _listen_address = asio::ip::address::from_string ( "192.168.0.1" /*TODO*/);
+    asio::ip::address _listen_address = asio::ip::address::from_string ( "0.0.0.0" );
     asio::ip::udp::endpoint listen_endpoint ( _listen_address, 0 );
 
     socket.open ( listen_endpoint.protocol() );
