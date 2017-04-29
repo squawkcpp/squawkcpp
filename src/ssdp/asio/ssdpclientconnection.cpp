@@ -42,6 +42,8 @@ void SSDPClientConnection::send ( const std::string & request_line, const std::m
     socket.close();
 }
 void SSDPClientConnection::handle_receive_from ( const asio::error_code & error, size_t bytes_recvd ) {
+    std::cout << "handle_receive_from: " << std::endl;
+
     if ( !error ) {
         http::Response response;
         response.remote_ip( sender_endpoint.address().to_string() );

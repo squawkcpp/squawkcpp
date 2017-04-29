@@ -98,6 +98,8 @@ SSDPServerImpl::~SSDPServerImpl() {
     suppress();
 }
 void SSDPServerImpl::handle_response ( http::Response & response ) {
+    std::cout << "handle_response: " << response << std::endl;
+
     if ( response.status() == http::http_status::OK ) {
         if ( response.parameter ( SSDP_HEADER_USN ).find ( uuid ) == std::string::npos ) {
 //            fireEvent ( SSDP_EVENT_TYPE::ANNOUNCE, response.remote_ip(), parseResponse ( response ) );
@@ -107,6 +109,7 @@ void SSDPServerImpl::handle_response ( http::Response & response ) {
 	}
 }
 void SSDPServerImpl::handle_receive ( http::Request & request ) {
+    std::cout << "handle_receive: " << request << std::endl;
     // do not process own messages received over other interface
     if ( request.parameter ( SSDP_HEADER_USN ).find ( uuid ) == std::string::npos ) {
 
@@ -168,7 +171,8 @@ SsdpEvent SSDPServerImpl::parseResponse ( http::Response & response ) {
                        std::time ( 0 ), cache_control };
 }
 void SSDPServerImpl::announce() {
-	suppress();
+    std::cout << "announce: " << std::endl;
+    suppress();
 
 	for ( size_t i = 0; i < NETWORK_COUNT; i++ ) {
 		for ( auto & iter : namespaces ) {
