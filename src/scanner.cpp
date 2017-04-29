@@ -348,84 +348,87 @@ struct ImportBook {
     static void run( Connection connection ) {
         db::exec( connection, "select ROWID, isbn, parent_id, path, mime_type, mtime, profile, size, title from tbl_cds_object where import = 0 and cls=?",
                   [&connection](auto statement) {
-            std::cout << "import book: " << db::get< size_t >( statement, 0 ) << ":" << db::get< const char * >( statement, 1 ) << std::endl;
-            std::this_thread::sleep_for(std::chrono::milliseconds( 1000 ) ); //wait not to overload...
 
-            std::cout << "lookup on amazon" << std::endl;
-                utils::BookResultItem _res = utils::AmazonFacade::bookByIsbn( "AKIAJL7OW25HI5DRKZJQ", "0TuOhtV6gitsfeWEbkmE4NYZcszvXH2W43rnf77R",
-                                                                        db::get< const char * >( statement, 1 ) );
-                if( _res.count == 0 || _res.status != 200 ) {
-                    _res = utils::GoogleBooks::query( db::get< const char * >( statement, 8 ), db::get< const char * >( statement, 1 ) );
-                }
+            std::string _isbn = db::get< const char * >( statement, 1 );
+            if( _isbn.length() > 0 ) {
+                std::cout << "import book: " << db::get< size_t >( statement, 0 ) << ":" << db::get< const char * >( statement, 1 ) << std::endl;
+                std::this_thread::sleep_for(std::chrono::milliseconds( 1000 ) ); //wait not to overload...
 
-            if( _res.status == 200 ) {
-
-                std::cout << "ISBN result (google) is: " << _res.isbn << std::endl;
-                dao::store< upnp::didl::DidlEBook >::run( connection, db::get< const char* >( statement, 3 ) /*filename*/, upnp::didl::DIDL_CLASS::objectItemEBook,
-                                                     db::get< const char * >( statement, 2 ) /*parent_id*/,
-                                                     _res.title /*title*/,
-                                                     db::get< const char* >( statement, 3 ) /*path*/,
-                                                     db::get< const char* >( statement, 4 ) /*mime_type*/,
-                                                     db::get< size_t >( statement, 5 ) /*mtime*/,
-                                                     2 /*object_update_id*/,
-                                                     db::get< const char* >( statement, 6 ) /*profile*/,
-                                                     db::get< unsigned long >( statement, 7 ) /*size*/,
-                                                     _res.isbn, _res.publicationDate /*Year*/,
-                                                     _res.description /*comment*/, 1 /*import*/ );
-                //save author
-                if ( _res.author.length() > 0 ) {
-                    std::string _clean_name = __Scanner::clean_name( _res.author );
-                    const int _author_id = dao::store< upnp::didl::DidlPersonAuthor>::run( connection, _clean_name,
-                        upnp::didl::DIDL_CLASS::objectPersonAuthor, "" /*path*/, _res.author /*title*/,
-                        _clean_name /*path*/, 0 /*mime_type*/, 0 /*mtime*/, 1 /*object_update_id*/, "" /*profile*/
-                    );
-                    dao::mapping( connection, db::get< size_t >( statement, 0 ), _author_id );
-                }
-
-                //save publisher
-                if ( _res.publisher.length() > 0 ) {
-                    std::string _clean_name = __Scanner::clean_name( _res.publisher );
-                    const int _publisher_id = dao::store< upnp::didl::DidlPersonPublisher>::run( connection, _clean_name,
-                        upnp::didl::DIDL_CLASS::objectPersonPublisher, "" /*path*/, _res.publisher /*title*/,
-                        _clean_name /*path*/, 0 /*mime_type*/, 0 /*mtime*/, 1 /*object_update_id*/, "" /*profile*/
-                    );
-                    dao::mapping( connection, db::get< unsigned long >( statement, 0 ), _publisher_id );
-                }
-
-                //dowload cover
-                if( ! _res.coverUri.empty() ) {
-                    try {
-                        std::stringstream _ss;
-                        _ss << Config::instance()->tmpDirectory() << "/albumArt/" << _res.coverUri.substr( _res.coverUri.find_last_of( "/" ) );
-                        std::ofstream _ofs( _ss.str().c_str(), std::ofstream::out );
-                        std::cout << "donload cover from amazon: " << _res.coverUri << std::endl;
-                        http::get( _res.coverUri, _ofs );
-
-                        image::Image image_meta_ ( _ss.str() );
-                        boost::filesystem::path _path( _ss.str() );
-                        size_t _id = dao::store< upnp::didl::DidlAlbumArt>::run( connection, _ss.str(),
-                            upnp::didl::DIDL_CLASS::objectAlbumArt, "", "front" /*title*/,
-                            _ss.str() /*path*/, http::mime::JPEG, boost::filesystem::last_write_time ( _path ),
-                            1 /*object_update_id*/, __Scanner::profile( http::mime::mime_type( image_meta_.mimeType() ) ) /*profile*/,
-                            boost::filesystem::file_size( _path ) /*filesize*/,
-                            image_meta_.width() /*width*/, image_meta_.height() /*height*/,
-                            image_meta_.colorDepth() /*color_depth*/, true );
-
-                        dao::mapping( connection, db::get< size_t >( statement, 0 ), _id );
-
-                        // Create Thumbnail
-                        image_meta_.scale ( 160, 160, fmt::format( "{0}/albumArt/tn_{1}.jpg", Config::instance()->tmpDirectory(), _id ) );
-                    } catch( ... ) { //TODO
-                        CLOG(ERROR, "cds") << "canot load image:" <<  _res.coverUri;
+                std::cout << "lookup on amazon" << std::endl;
+                    utils::BookResultItem _res = utils::AmazonFacade::bookByIsbn( "AKIAJL7OW25HI5DRKZJQ", "0TuOhtV6gitsfeWEbkmE4NYZcszvXH2W43rnf77R",
+                                                                            db::get< const char * >( statement, 1 ) );
+                    if( _res.count == 0 || _res.status != 200 ) {
+                        _res = utils::GoogleBooks::query( db::get< const char * >( statement, 8 ), db::get< const char * >( statement, 1 ) );
                     }
+
+                if( _res.status == 200 ) {
+
+                    std::cout << "ISBN result (google) is: " << _res.isbn << std::endl;
+                    dao::store< upnp::didl::DidlEBook >::run( connection, db::get< const char* >( statement, 3 ) /*filename*/, upnp::didl::DIDL_CLASS::objectItemEBook,
+                                                         db::get< const char * >( statement, 2 ) /*parent_id*/,
+                                                         _res.title /*title*/,
+                                                         db::get< const char* >( statement, 3 ) /*path*/,
+                                                         db::get< const char* >( statement, 4 ) /*mime_type*/,
+                                                         db::get< size_t >( statement, 5 ) /*mtime*/,
+                                                         2 /*object_update_id*/,
+                                                         db::get< const char* >( statement, 6 ) /*profile*/,
+                                                         db::get< unsigned long >( statement, 7 ) /*size*/,
+                                                         _res.isbn, _res.publicationDate /*Year*/,
+                                                         _res.description /*comment*/, 1 /*import*/ );
+                    //save author
+                    if ( _res.author.length() > 0 ) {
+                        std::string _clean_name = __Scanner::clean_name( _res.author );
+                        const int _author_id = dao::store< upnp::didl::DidlPersonAuthor>::run( connection, _clean_name,
+                            upnp::didl::DIDL_CLASS::objectPersonAuthor, "" /*path*/, _res.author /*title*/,
+                            _clean_name /*path*/, 0 /*mime_type*/, 0 /*mtime*/, 1 /*object_update_id*/, "" /*profile*/
+                        );
+                        dao::mapping( connection, db::get< size_t >( statement, 0 ), _author_id );
+                    }
+
+                    //save publisher
+                    if ( _res.publisher.length() > 0 ) {
+                        std::string _clean_name = __Scanner::clean_name( _res.publisher );
+                        const int _publisher_id = dao::store< upnp::didl::DidlPersonPublisher>::run( connection, _clean_name,
+                            upnp::didl::DIDL_CLASS::objectPersonPublisher, "" /*path*/, _res.publisher /*title*/,
+                            _clean_name /*path*/, 0 /*mime_type*/, 0 /*mtime*/, 1 /*object_update_id*/, "" /*profile*/
+                        );
+                        dao::mapping( connection, db::get< unsigned long >( statement, 0 ), _publisher_id );
+                    }
+
+                    //dowload cover
+                    if( ! _res.coverUri.empty() ) {
+                        try {
+                            std::stringstream _ss;
+                            _ss << Config::instance()->tmpDirectory() << "/albumArt/" << _res.coverUri.substr( _res.coverUri.find_last_of( "/" ) );
+                            std::ofstream _ofs( _ss.str().c_str(), std::ofstream::out );
+                            std::cout << "donload cover from amazon: " << _res.coverUri << std::endl;
+                            http::get( _res.coverUri, _ofs );
+
+                            image::Image image_meta_ ( _ss.str() );
+                            boost::filesystem::path _path( _ss.str() );
+                            size_t _id = dao::store< upnp::didl::DidlAlbumArt>::run( connection, _ss.str(),
+                                upnp::didl::DIDL_CLASS::objectAlbumArt, "", "front" /*title*/,
+                                _ss.str() /*path*/, http::mime::JPEG, boost::filesystem::last_write_time ( _path ),
+                                1 /*object_update_id*/, __Scanner::profile( http::mime::mime_type( image_meta_.mimeType() ) ) /*profile*/,
+                                boost::filesystem::file_size( _path ) /*filesize*/,
+                                image_meta_.width() /*width*/, image_meta_.height() /*height*/,
+                                image_meta_.colorDepth() /*color_depth*/, true );
+
+                            dao::mapping( connection, db::get< size_t >( statement, 0 ), _id );
+
+                            // Create Thumbnail
+                            image_meta_.scale ( 160, 160, fmt::format( "{0}/albumArt/tn_{1}.jpg", Config::instance()->tmpDirectory(), _id ) );
+                        } catch( ... ) { //TODO
+                            CLOG(ERROR, "cds") << "canot load image:" <<  _res.coverUri;
+                        }
+                    }
+
+                } else {
+                    std::cout << "error in book result: " << db::get< const char * >( statement, 1 ) << "::" << db::get< const char * >( statement, 1 ) << " (error:" <<
+                                 static_cast< int >( _res.status ) << ")" << std::endl;
+                    db::exec( connection, "update tbl_cds_object set import = 1 where ROWID=?", db::get< size_t >( statement, 0 ) );
                 }
-
-            } else {
-                std::cout << "error in book result: " << db::get< const char * >( statement, 1 ) << "::" << db::get< const char * >( statement, 1 ) << " (error:" <<
-                             static_cast< int >( _res.status ) << ")" << std::endl;
-                db::exec( connection, "update tbl_cds_object set import = 1 where ROWID=?", db::get< size_t >( statement, 0 ) );
             }
-
         }, upnp::didl::DIDL_CLASS::objectItemEBook );
     }
 };
