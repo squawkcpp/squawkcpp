@@ -29,10 +29,10 @@ SSDPServerConnection::SSDPServerConnection ( const std::string & multicast_addre
     multicast_port ( multicast_port ), _handler ( handler ) {
 
 	asio::ip::address _multicast_address = asio::ip::address::from_string ( multicast_address );
-    asio::ip::address _listen_address = asio::ip::address::from_string ( "192.168.0.1" );
+    asio::ip::address _listen_address = asio::ip::address::from_string ( multicast_address /*"192.168.0.1"*/ );
 
 	// Create the socket so that multiple may be bound to the same address.
-    std::cout << "bind to: " << _listen_address << ":" <<  multicast_port << std::endl;
+    std::cout << "bind toooo: " << _listen_address << ":" <<  multicast_port << std::endl;
     asio::ip::udp::endpoint listen_endpoint ( _multicast_address /*asio::ip::address_v4::any()*/, multicast_port );
 	socket.open ( listen_endpoint.protocol() );
 
@@ -41,7 +41,7 @@ SSDPServerConnection::SSDPServerConnection ( const std::string & multicast_addre
 
 	// Join the multicast group.
 	socket.set_option (
-        asio::ip::multicast::join_group ( _multicast_address.to_v4(), _listen_address.to_v4() ) );
+        asio::ip::multicast::join_group ( _multicast_address ) );
 
     using namespace std::placeholders;
     socket.async_receive_from ( asio::buffer ( data, http::BUFFER_SIZE ), sender_endpoint,
