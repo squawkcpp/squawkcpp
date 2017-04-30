@@ -40,7 +40,7 @@ public:
 	 * Create a new SSDPAsioConnection.
 	 */
     SSDPServerConnection ( const std::string & multicast_address, const int & port,
-                           std::function< void ( http::Request& ) > handler );
+                           const std::string &listen_address, std::function< void ( http::Request& ) > handler );
     virtual ~SSDPServerConnection();
 
 	/**

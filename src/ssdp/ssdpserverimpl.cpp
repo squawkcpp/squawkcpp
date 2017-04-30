@@ -71,7 +71,7 @@ const std::string SSDPServerImpl::SSDP_HEADER_REQUEST_LINE = "NOTIFY * HTTP/1.1"
 const std::string SSDPServerImpl::SSDP_HEADER_SEARCH_REQUEST_LINE = "M-SEARCH * HTTP/1.1";
 
 SSDPServerImpl::SSDPServerImpl ( const std::string & uuid, const std::string & multicast_address, const int & multicast_port,
-                                 const std::map< std::string, std::string > & namespaces ) :
+                                 const std::string & listen_address, const std::map< std::string, std::string > & namespaces ) :
 	uuid ( uuid ), multicast_address ( multicast_address ), multicast_port ( multicast_port ) {
 
     for ( auto & ns : namespaces ) {
@@ -80,8 +80,8 @@ SSDPServerImpl::SSDPServerImpl ( const std::string & uuid, const std::string & m
 
     //start the server
     using namespace std::placeholders;
-    connection = std::unique_ptr<SSDPServerConnection> (
-                     new SSDPServerConnection ( multicast_address, multicast_port, std::bind ( &SSDPServerImpl::handle_receive, this, _1 ) ) );
+    connection = std::unique_ptr<SSDPServerConnection> ( new SSDPServerConnection (
+        multicast_address, multicast_port, listen_address, std::bind ( &SSDPServerImpl::handle_receive, this, _1 ) ) );
     //start reannounce thread
     announce_thread_run = true;
     annouceThreadRunner = std::unique_ptr<std::thread> (
@@ -98,8 +98,6 @@ SSDPServerImpl::~SSDPServerImpl() {
     suppress();
 }
 void SSDPServerImpl::handle_response ( http::Response & response ) {
-    std::cout << "handle_response: " << response << std::endl;
-
     if ( response.status() == http::http_status::OK ) {
         if ( response.parameter ( SSDP_HEADER_USN ).find ( uuid ) == std::string::npos ) {
 //            fireEvent ( SSDP_EVENT_TYPE::ANNOUNCE, response.remote_ip(), parseResponse ( response ) );
@@ -109,7 +107,6 @@ void SSDPServerImpl::handle_response ( http::Response & response ) {
 	}
 }
 void SSDPServerImpl::handle_receive ( http::Request & request ) {
-    std::cout << "handle_receive: " << request << std::endl;
     // do not process own messages received over other interface
     if ( request.parameter ( SSDP_HEADER_USN ).find ( uuid ) == std::string::npos ) {
 
@@ -171,7 +168,6 @@ SsdpEvent SSDPServerImpl::parseResponse ( http::Response & response ) {
                        std::time ( 0 ), cache_control };
 }
 void SSDPServerImpl::announce() {
-    std::cout << "announce: " << std::endl;
     suppress();
 
 	for ( size_t i = 0; i < NETWORK_COUNT; i++ ) {

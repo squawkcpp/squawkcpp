@@ -24,16 +24,15 @@ namespace ssdp {
 inline namespace asio_impl {
 
 SSDPServerConnection::SSDPServerConnection ( const std::string & multicast_address,
-        const int & multicast_port, std::function< void ( http::Request& ) > handler ) :
+        const int & multicast_port, const std::string & listen_address, std::function< void ( http::Request& ) > handler ) :
     io_service(), strand_ ( io_service ), socket ( io_service ), multicast_address ( multicast_address ),
     multicast_port ( multicast_port ), _handler ( handler ) {
 
 	asio::ip::address _multicast_address = asio::ip::address::from_string ( multicast_address );
-    asio::ip::address _listen_address = asio::ip::address::from_string ( "192.168.0.1" );
+    asio::ip::address _listen_address = asio::ip::address::from_string ( listen_address );
 
 	// Create the socket so that multiple may be bound to the same address.
-    std::cout << "bind to: " << _listen_address << ":" <<  multicast_port << std::endl;
-    asio::ip::udp::endpoint listen_endpoint ( asio::ip::udp::v4() /*asio::ip::address_v4::any()*/, multicast_port );
+    asio::ip::udp::endpoint listen_endpoint ( asio::ip::udp::v4(), multicast_port );
 	socket.open ( listen_endpoint.protocol() );
 
 	socket.set_option ( asio::ip::udp::socket::reuse_address ( true ) );
@@ -69,7 +68,6 @@ void SSDPServerConnection::send ( std::string request_line, std::map< std::strin
 
 void SSDPServerConnection::send ( SsdpResponse response ) {
     std::string buffer = ssdp::create_header ( response.request_line, response.headers );
-    std::cout << "send response: " << sender_endpoint.address().to_string() << std::endl;
 	socket.send_to (
 		asio::buffer ( buffer, buffer.length() ), sender_endpoint );
 }

@@ -141,6 +141,7 @@ void SquawkServer::start() {
         Config::instance()->uuid(),
         Config::instance()->multicastAddress(),
         Config::instance()->multicastPort(),
+        Config::instance()->localListenAddress(),
         std::map< std::string, std::string >( {
             { Config::instance()->uuid(), device_uri_ },
             { ssdp::NS_ROOT_DEVICE, device_uri_ },

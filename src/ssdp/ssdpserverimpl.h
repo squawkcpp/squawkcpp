@@ -40,7 +40,7 @@ public:
          */
         explicit SSDPServerImpl (
             const std::string & uuid, const std::string & multicast_address, const int & multicast_port,
-            const std::map< std::string, std::string > & namespaces );
+            const std::string & listen_address, const std::map< std::string, std::string > & namespaces );
 
         ~SSDPServerImpl();
 

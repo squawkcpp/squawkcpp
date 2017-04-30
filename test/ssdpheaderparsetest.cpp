@@ -27,7 +27,7 @@
 
 namespace ssdp {
 TEST( SSDPHeaderParseTest, DISABLED_Response ) {
-    SSDPServerImpl server("2b2645ef-0501-4c04-ad97-174e05bab162", "239.255.255.250", 1900, std::map< std::string, std::string >() );
+    SSDPServerImpl server("2b2645ef-0501-4c04-ad97-174e05bab162", "239.255.255.250", 1900, "192.168.0.1", std::map< std::string, std::string >() );
 
 //    ResponseLines:
 //            Cache-Control: max-age=1800
