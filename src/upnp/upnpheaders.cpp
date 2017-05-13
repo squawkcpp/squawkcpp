@@ -16,16 +16,18 @@ http::http_status UpnpHeaders::execute ( http::Request& request, http::Response&
 
     //set content length, some devices need upper case header names.
     if ( ! response.contains_parameter ( http::header::CONTENT_LENGTH ) ) {
+        std::cout << "content lenth by tellp: " << response.tellp() << std::endl;
         response.parameter ( boost::to_upper_copy<std::string>( http::header::CONTENT_LENGTH ),  std::to_string ( response.tellp() ) );
     } else {
+        std::cout << "content lenth crom header: " << response.parameter( http::header::CONTENT_LENGTH ) << std::endl;
         std::string _content_length = response.parameter( http::header::CONTENT_LENGTH );
         response.erase( http::header::CONTENT_LENGTH );
         response.parameter ( boost::to_upper_copy<std::string>( http::header::CONTENT_LENGTH ),  _content_length );
     }
 
     std::string _content_type = response.parameter( http::header::CONTENT_TYPE );
-    if( _content_type == "video/mp4") {
-        _content_type == "video/mpeg";
+    if( _content_type == "video/mp4" ) {
+        _content_type = "video/mpeg";
     }
     response.erase( http::header::CONTENT_TYPE );
     response.parameter ( boost::to_upper_copy<std::string>( http::header::CONTENT_TYPE ),  _content_type );
