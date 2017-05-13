@@ -115,7 +115,7 @@ void SquawkServer::start() {
                           return _status;
                       }),
                       http::mod::File( "/" ),
-                      http::mod::Http() /*upnp::UpnpHeaders()*/ );
+                      upnp::UpnpHeaders() );
 
 //    web_server->bind( http::mod::Match< std::string >( "/api/(upnp/device|upnp/event|album|artist|track|browse|statistic)", "command" ),
 //                      http::mod::Exec( std::bind( &squawk::UpnpContentDirectoryApi::do_get, std::make_shared< squawk::UpnpContentDirectoryApi >(), _1, _2 ) ),
