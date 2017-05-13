@@ -15,15 +15,15 @@ http::http_status UpnpHeaders::execute ( http::Request& request, http::Response&
     response.protocol ( request.protocol() );
 
     //set content length, some devices need upper case header names.
-    if ( ! response.contains_parameter ( http::header::CONTENT_LENGTH ) ) {
-        std::cout << "content lenth by tellp: " << response.tellp() << std::endl;
-        response.parameter ( boost::to_upper_copy<std::string>( http::header::CONTENT_LENGTH ),  std::to_string ( response.tellp() ) );
-    } else {
-        std::cout << "content lenth crom header: " << response.parameter( http::header::CONTENT_LENGTH ) << std::endl;
-        std::string _content_length = response.parameter( http::header::CONTENT_LENGTH );
-        response.erase( http::header::CONTENT_LENGTH );
-        response.parameter ( boost::to_upper_copy<std::string>( http::header::CONTENT_LENGTH ),  _content_length );
-    }
+//    if ( ! response.contains_parameter ( http::header::CONTENT_LENGTH ) ) {
+//        std::cout << "content lenth by tellp: " << response.tellp() << std::endl;
+//        response.parameter ( boost::to_upper_copy<std::string>( http::header::CONTENT_LENGTH ),  std::to_string ( response.tellp() ) );
+//    } else {
+//        std::cout << "content lenth crom header: " << response.parameter( http::header::CONTENT_LENGTH ) << std::endl;
+//        std::string _content_length = response.parameter( http::header::CONTENT_LENGTH );
+//        response.erase( http::header::CONTENT_LENGTH );
+//        response.parameter ( boost::to_upper_copy<std::string>( http::header::CONTENT_LENGTH ),  _content_length );
+//    }
 
     std::string _content_type = response.parameter( http::header::CONTENT_TYPE );
     if( _content_type == "video/mp4" ) {
