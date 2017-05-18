@@ -26,6 +26,7 @@ http::http_status UpnpHeaders::execute ( http::Request& request, http::Response&
 //    }
 
     std::string _content_type = response.parameter( http::header::CONTENT_TYPE );
+    std::cout << "test mimt_type: " << _content_type << std::endl;
     if( _content_type == "video/mp4" ) {
         _content_type = "video/mpeg";
     }
