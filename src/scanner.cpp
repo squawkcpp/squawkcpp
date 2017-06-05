@@ -727,7 +727,7 @@ void Scanner::parse ( const std::vector< std::string >& directories ) throw(std:
 
     ParseAlbums::run( db_ );
     ImportBook::run( db_ );
-    //TODO ImportSeries::run( db_ );
+    ImportSeries::run( db_ );
 
 
     db::transaction_end( db_ );

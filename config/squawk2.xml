@@ -7,20 +7,23 @@
     <cover-name>folder</cover-name>
   </cover-names>
   <database-file>/var/cache/squawk/squawk.db</database-file>
-  <http-bower>/home/e3a/tmp/build-squawk-Desktop-Debug/</http-bower>
-  <http-docroot>/home/e3a/tmp/squawk/docroot/</http-docroot>
-  <http-ip>172.17.0.8</http-ip>
+  <http-bower>/home/etienne/build-squawk-Desktop-Debug/</http-bower>
+  <http-docroot>/home/etienne/squawkcpp/docroot/</http-docroot>
+  <http-ip>192.168.0.1</http-ip>
   <http-port>9000</http-port>
-  <local-address>172.17.0.8</local-address>
+  <local-address>192.168.0.1</local-address>
   <logger/>
   <media-directories>
     <media-directory>/srv/Downloads</media-directory>
-    <media-directory>/srv/Downloads2</media-directory>
+    <media-directory>/srv/Music/Pop</media-directory>
+    <media-directory>/srv/Music/Metall</media-directory>
+    <media-directory>/srv/Music/Experimental</media-directory>
+    <media-directory>/srv/Movies</media-directory>
   </media-directories>
   <multicast-address>239.255.255.250</multicast-address>
   <multicast-port>1900</multicast-port>
   <server-name>[DEV2] Squawk Media Server</server-name>
-  <tmdb-api-key>c6cd88214317f48a348fc3fa87a4b081</tmdb-api-key>
+  <tmdb-api-key>7c49f30322a1b0db4067410c7827fbc5</tmdb-api-key>
   <tmp-directory>/var/cache/squawk/</tmp-directory>
   <uuid>2b2645ef-0501-4c04-ad97-174e05bab162</uuid>
 </squawk>
