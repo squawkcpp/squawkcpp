@@ -6,7 +6,7 @@
     <cover-name>front</cover-name>
     <cover-name>folder</cover-name>
   </cover-names>
-  <database-file>/var/cache/squawk/squawk.db</database-file>
+  <database-file>/home/etienne/.squawk/squawk.db</database-file>
   <http-bower>/home/etienne/build-squawk-Desktop-Debug/</http-bower>
   <http-docroot>/home/etienne/squawkcpp/docroot/</http-docroot>
   <http-ip>192.168.0.1</http-ip>
@@ -24,6 +24,6 @@
   <multicast-port>1900</multicast-port>
   <server-name>[DEV2] Squawk Media Server</server-name>
   <tmdb-api-key>7c49f30322a1b0db4067410c7827fbc5</tmdb-api-key>
-  <tmp-directory>/var/cache/squawk/</tmp-directory>
+  <tmp-directory>/home/etienne/.squawk/</tmp-directory>
   <uuid>2b2645ef-0501-4c04-ad97-174e05bab162</uuid>
 </squawk>

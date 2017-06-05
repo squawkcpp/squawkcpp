@@ -526,10 +526,10 @@ struct ParseVideo {
         { return _format.errc(); }
 //        commons::media::MediaFile media_file = commons::media::MediaParser::parseFile ( filename );
         int width_ = 0, height_ = 0, bitrate_ = 0, color_depth_ = 0, duration_ = 0;
-        for ( auto stream_ : _format ) {
-            width_ = stream_->width();
-            height_ = stream_->height();
-            bitrate_ = stream_->bitrate();
+        for ( auto& stream_ : _format ) {
+            width_ = stream_.width();
+            height_ = stream_.height();
+            bitrate_ = stream_.bitrate();
             //TODO color_depth_ = stream_.
             //TODO duration_ = stream_.
         }
@@ -592,11 +592,11 @@ struct ParseAudio {
         }
 
         int bitrate_=0, bits_per_sample_=0, nr_audio_channels_=0, sample_frequency_=0;
-        for ( auto stream_ : _format ) {
-            bitrate_ = stream_->bitrate();
-            bits_per_sample_ = stream_->bits_per_sample();
-            nr_audio_channels_ = stream_->channels();
-            sample_frequency_ = stream_->samplerate();
+        for ( auto& stream_ : _format ) {
+            bitrate_ = stream_.bitrate();
+            bits_per_sample_ = stream_.bits_per_sample();
+            nr_audio_channels_ = stream_.channels();
+            sample_frequency_ = stream_.sample_rate();
         }
 
         //save track
