@@ -119,6 +119,8 @@ install(TARGETS squawk RUNTIME DESTINATION bin)
 #add_executable(aws src/utils/aws.cpp src/utils/amazonfacade.cpp ${LIBXML2_INCLUDE_DIR} ${CURL_INCLUDE_DIRS} )
 #target_link_libraries(aws ${OPENSSL_LIBRARIES} ${CURL_LIBRARIES} -lm  ${LIBXML2_LIBRARIES} )
 
+add_subdirectory( cds )
+
 # -------------------------------------------------------------------------
 # -----------------------   Manage Test Cases       -----------------------
 # -------------------------------------------------------------------------
